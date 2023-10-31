@@ -23,3 +23,13 @@ In the components folder, add the Header and Footer files.
 
 In the pages folder add, About Us, Home, MovieIndex, Movie Delete, Movie New, Movie Show, Movie Update, SignUpSignIn
 
+## Branch: routing
+import each component/page into App.js
+Then in index.js import { BrowserRouter } from react-router-dom and add it inside of the return. Also add (to make reactstrap and bootstrap work):
+```jsx
+import 'bootstrap/dist/css/bootstrap.min.css'
+```
+
+Then start routing each page and component with a path and element. 
+
+Afterwards, work on Header and Footer of page, styling and creating functionality. Then once that's done create the testing for both.
