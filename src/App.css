@@ -50,3 +50,33 @@ body{
   font-size: 30px;
   margin-top: 20px;
 }
+
+
+
+/* Sign Up page styling */
+#form {
+  background: #fbd4c4;
+  border: 1px solid #dedede;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin: 0 auto;
+  max-width: 500px;
+  padding: 30px 50px;
+  margin-top: 225px;
+}
+
+h1{
+  text-align: center;
+}
+
+#signupbutton{
+  text-align: center;
+  margin-top: 20px;
+  font-size: 20px;
+}
+
+#gobackbutton{
+  background: rgb(97, 96, 96);
+  color: white;
+}
