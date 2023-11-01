@@ -33,3 +33,9 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 Then start routing each page and component with a path and element. 
 
 Afterwards, work on Header and Footer of page, styling and creating functionality. Then once that's done create the testing for both.
+
+## Branch: signin-signup
+Started working on the styling of the page, this will contain both the sign in and sign up functions. The user NEEDS to sign up in order to navigate through webpage. 
+
+CSS: Background image needs to be fixed. 
+CSS: Fix Movie Matcher Image on signinsignup page
