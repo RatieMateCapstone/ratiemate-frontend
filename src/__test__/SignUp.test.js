@@ -3,21 +3,16 @@ import { BrowserRouter } from 'react-router-dom'
 import SignUp from "../pages/SignUp"
 
 describe("<SignUp />", () => {
-    it("renders a form", () => {
+    it("renders a Sign Up title", () => {
         render(
             <BrowserRouter>
                 <SignUp />
             </BrowserRouter>
         )
-        const container = document.createElement("div")
-        document.body.appendChild(container);
-
-        const form = document.createElement("form");
-        form.id = "form";
-        container.appendChild(form);
-
-        document.body.removeChild(container);
-        expect(form).toBeDefined()
+        const signUpTitle = screen.getByRole('heading', {
+            name: /sign up/i
+        })
+        expect(signUpTitle).toBeInTheDocument()
     })
     it("renders email field", () =>{
         render(
@@ -36,22 +31,6 @@ describe("<SignUp />", () => {
         )
         const usernameInput = screen.getByPlaceholderText(/username/i)
         expect(usernameInput).toBeInTheDocument()
-    })
-    it("renders password field", () =>{
-        render(
-            <BrowserRouter>
-                <SignUp />
-            </BrowserRouter>
-        )
-        const container = document.createElement("div")
-        document.body.appendChild(container);
-
-        const passwordInput = document.createElement("password");
-        passwordInput.id = "password";
-        container.appendChild(passwordInput);
-
-        document.body.removeChild(container);
-        expect(password).toBeInTheDocument()
     })
     it("renders a password confirmation", () => {
       render(

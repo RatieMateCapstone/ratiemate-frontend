@@ -9,9 +9,6 @@ describe("<SignUpSignIn />", () => {
                 <SignInSignUp/>
             </BrowserRouter>
         )
-        screen.debug()
-        screen.logTestingPlaygroundURL()
-        
         const webTitle = screen.getByRole("heading",  {
             name: /movie matcher/i
         })
