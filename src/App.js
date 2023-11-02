@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "./component/Header"
 import Footer from "./component/Footer"
 import Home from "./pages/Home"
@@ -11,8 +11,13 @@ import SignInSignUp from "./pages/SignUpSignIn"
 import { Routes, Route } from "react-router-dom"
 import SignUp from "./pages/SignUp";
 import SignIn from "./pages/SignIn";
+import mockMovies from "./mockMovies";
+import mockUsers from "./mockUsers.js";
 
 const App = () => {
+  const [movies, setMovies] = useState(mockMovies)
+  const [currentUser, setCurrentUser] = useState(mockUsers[0])
+ 
   return(
     <>
       <Routes>
