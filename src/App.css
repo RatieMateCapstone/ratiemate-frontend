@@ -1,38 +1,82 @@
-.App {
+body{
+  background-image: url("assets/capstonebackground.png");
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+}
+
+/* Sign In/Sign Up Page */
+.sign-container{
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.sign{
+  height: 300px;
+  transform: rotate(90deg);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.webtitle{
+  color: white;
+  position: absolute;
+  top: 150px;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.bottom-container{
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.ticket{
+  height: 500px;
+}
+
+.booth{
+  height: 580px;
+}
+
+.ticket{
+  position: relative;
+}
+
+#button{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  font-size: 30px;
+  margin-top: 20px;
+}
+
+
+/* Sign Up and Sign In page styling */
+#form {
+  background: #fbd4c4;
+  border: 1px solid #dedede;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  justify-content: space-around;
+  margin: 0 auto;
+  max-width: 500px;
+  padding: 30px 50px;
+  margin-top: 225px;
+}
+
+h1{
+  text-align: center;
+}
+
+#signupbutton{
+  text-align: center;
+  margin-top: 20px;
+  font-size: 20px;
+}
+
+#gobackbutton{
+  background: rgb(97, 96, 96);
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
