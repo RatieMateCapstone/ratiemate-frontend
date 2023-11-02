@@ -41,3 +41,9 @@ CSS: Background image needs to be fixed.
 CSS: Fix Movie Matcher Image on signinsignup page
 CSS Stretch: Make the forms look nicer (Like tickets)
 
+## Branch: header-footer
+Worked on header. Header1 needs on click functionality for account icon to have it show user movies that they've added or log out. 
+
+CSS Stretch: Fix the border on account icon
+JS: Need to connect log out option, so it navigates user back to signinsignup page
+

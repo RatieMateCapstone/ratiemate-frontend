@@ -11,7 +11,7 @@ describe("<App />", () => {
     )
 
     const greeting = screen.getByRole("heading", {
-      name: /Movie Matcher/i
+      name: /Ratie Mate/i
     })
 
     expect(greeting).toBeInTheDocument()

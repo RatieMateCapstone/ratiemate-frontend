@@ -11,7 +11,7 @@ const SignInSignUp = () => {
         <body>
             <div className="sign-container">
                 <img src={Sign} alt="Movie Theater Sign" className="sign"/>
-                <h2 className="webtitle">Movie Matcher</h2>
+                <h2 className="webtitle">Ratie Mate</h2>
             </div>
             <div className="bottom-container">
                 <div className="ticket">

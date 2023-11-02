@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import Header from "./component/Header"
-import Footer from "./component/Footer"
 import Home from "./pages/Home"
 import MovieIndex from "./pages/MovieIndex"
 import MovieShow from "./pages/MovieShow"
@@ -13,6 +11,8 @@ import SignUp from "./pages/SignUp";
 import SignIn from "./pages/SignIn";
 import mockMovies from "./mockMovies";
 import mockUsers from "./mockUsers.js";
+import MovieNew from "./pages/MovieNew.js"
+import UserMovies from "./pages/UserMovies.js"
 
 const App = () => {
   const [movies, setMovies] = useState(mockMovies)
@@ -24,6 +24,8 @@ const App = () => {
         <Route path="/" element={<SignInSignUp />}/>
         <Route path="/home" element={<Home />}/>
         <Route path="/movieindex" element={<MovieIndex />}/>
+        <Route path="/movienew" element={<MovieNew />}/>
+        <Route path="/usermovies" element={<UserMovies />}/>
         <Route path="/movieshow" element={<MovieShow />}/>
         <Route path="/movieedit" element={<MovieEdit />}/>
         <Route path="/aboutus" element={<AboutUs />}/>
