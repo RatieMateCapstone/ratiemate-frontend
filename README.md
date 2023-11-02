@@ -39,3 +39,5 @@ Started working on the styling of the page, this will contain both the sign in a
 
 CSS: Background image needs to be fixed. 
 CSS: Fix Movie Matcher Image on signinsignup page
+CSS Stretch: Make the forms look nicer (Like tickets)
+

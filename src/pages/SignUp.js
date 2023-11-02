@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 const SignUp = () => {
     return(
-        <>
+        <div>
             <Form id="form">
                 <h1>Sign Up</h1>
                 <FormGroup floating>
@@ -66,7 +66,7 @@ const SignUp = () => {
                     </button>
                 </Link>
             </div>
-        </>
+        </div>
     )
 }
 

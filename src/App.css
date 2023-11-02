@@ -52,8 +52,7 @@ body{
 }
 
 
-
-/* Sign Up page styling */
+/* Sign Up and Sign In page styling */
 #form {
   background: #fbd4c4;
   border: 1px solid #dedede;
@@ -80,3 +79,4 @@ h1{
   background: rgb(97, 96, 96);
   color: white;
 }
+
