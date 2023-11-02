@@ -17,6 +17,7 @@ describe("<SignUp />", () => {
         container.appendChild(form);
 
         document.body.removeChild(container);
+        expect(form).toBeDefined()
     })
     it("renders email field", () =>{
         render(
@@ -50,6 +51,7 @@ describe("<SignUp />", () => {
         container.appendChild(passwordInput);
 
         document.body.removeChild(container);
+        expect(password).toBeInTheDocument()
     })
     it("renders a password confirmation", () => {
       render(

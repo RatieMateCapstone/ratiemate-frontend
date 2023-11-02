@@ -17,22 +17,22 @@ const SignIn = () => {
                     <Label for="examplePassword">
                         Username:
                     </Label>
-                    </FormGroup>
+                </FormGroup>
                     {' '}
                 <FormGroup floating>
-                <Input
-                    id="password"
-                    name="password"
-                    placeholder="password"
-                    type="string"
-                />
-                <Label for="exampleEmail">
-                    Password:
-                </Label>
+                    <Input
+                        id="password"
+                        name="password"
+                        placeholder="password"
+                        type="string"
+                    />
+                    <Label for="exampleEmail">
+                        Password:
+                    </Label>
                 </FormGroup>
-                {' '}
+                    {' '}
                 <Button>
-                Submit
+                    Submit
                 </Button>
             </Form>
             <div id="signupbutton">

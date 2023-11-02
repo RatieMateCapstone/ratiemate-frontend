@@ -10,12 +10,12 @@ const SignInSignUp = () => {
     return(
         <body>
             <div className="sign-container">
-                <img src={Sign} alt="Movie Theater Sign" className="sign"></img>
+                <img src={Sign} alt="Movie Theater Sign" className="sign"/>
                 <h2 className="webtitle">Movie Matcher</h2>
             </div>
             <div className="bottom-container">
                 <div className="ticket">
-                    <img src={Ticket} alt="Movie Ticket" className="ticket"></img>
+                    <img src={Ticket} alt="Movie Ticket" className="ticket"/>
                     <Link to="/signup" id="button">
                         <button>
                             Sign Up
@@ -23,10 +23,10 @@ const SignInSignUp = () => {
                     </Link>
                 </div>
                 <div>
-                    <img src={Booth} alt="Ticket Booth" className="booth"></img>
+                    <img src={Booth} alt="Ticket Booth" className="booth"/>
                 </div>
                 <div className="ticket">
-                    <img src={Ticket1} alt="Movie Ticket" className="ticket"></img>
+                    <img src={Ticket1} alt="Movie Ticket" className="ticket"/>
                     <Link to="/signin" id="button">
                         <button>
                             Sign In

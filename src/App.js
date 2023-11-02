@@ -16,15 +16,15 @@ const App = () => {
   return(
     <>
       <Routes>
-        <Route path="/" element={<SignInSignUp />}></Route>
-        <Route path="/home" element={<Home />}></Route>
-        <Route path="/movieindex" element={<MovieIndex />}></Route>
-        <Route path="/movieshow" element={<MovieShow />}></Route>
-        <Route path="/movieedit" element={<MovieEdit />}></Route>
-        <Route path="/aboutus" element={<AboutUs />}></Route>
-        <Route path="/signup" element={<SignUp />}></Route>
-        <Route path="/signin" element={<SignIn />}></Route>
-        <Route path="*" element={<NotFound />}></Route>
+        <Route path="/" element={<SignInSignUp />}/>
+        <Route path="/home" element={<Home />}/>
+        <Route path="/movieindex" element={<MovieIndex />}/>
+        <Route path="/movieshow" element={<MovieShow />}/>
+        <Route path="/movieedit" element={<MovieEdit />}/>
+        <Route path="/aboutus" element={<AboutUs />}/>
+        <Route path="/signup" element={<SignUp />}/>
+        <Route path="/signin" element={<SignIn />}/>
+        <Route path="*" element={<NotFound />}/>
       </Routes>
   
     </>

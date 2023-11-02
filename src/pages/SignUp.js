@@ -8,55 +8,55 @@ const SignUp = () => {
             <Form id="form">
                 <h1>Sign Up</h1>
                 <FormGroup floating>
-                <Input 
-                    id="email"
-                    name="email"
-                    placeholder="email"
-                    type="string"
-                />
-                <Label for="exampleEmail">
-                    Email:
-                </Label>
+                    <Input 
+                        id="email"
+                        name="email"
+                        placeholder="email"
+                        type="string"
+                    />
+                    <Label for="exampleEmail">
+                        Email:
+                    </Label>
                 </FormGroup>
-                {' '}
+                    {' '}
                 <FormGroup floating>
-                <Input
-                    id="username"
-                    name="username"
-                    placeholder="username"
-                    type="string"
-                />
-                <Label for="examplePassword">
-                    Username:
-                </Label>
+                    <Input
+                        id="username"
+                        name="username"
+                        placeholder="username"
+                        type="string"
+                    />
+                    <Label for="examplePassword">
+                        Username:
+                    </Label>
                 </FormGroup>
-                {' '}
+                    {' '}
                 <FormGroup floating>
-                <Input
-                    id="password"
-                    name="password"
-                    placeholder="password"
-                    type="string"
-                />
-                <Label for="exampleEmail">
-                    Password:
-                </Label>
+                    <Input
+                        id="password"
+                        name="password"
+                        placeholder="password"
+                        type="string"
+                    />
+                    <Label for="exampleEmail">
+                        Password:
+                    </Label>
                 </FormGroup>
-                {' '}
+                    {' '}
                 <FormGroup floating>
-                <Input
-                    id="confirmpassword"
-                    name="confirmpassword"
-                    placeholder="confirm password"
-                    type="string"
-                />
-                <Label for="exampleEmail">
-                    Password Confirmation:
-                </Label>
+                    <Input
+                        id="confirmpassword"
+                        name="confirmpassword"
+                        placeholder="confirm password"
+                        type="string"
+                    />
+                    <Label for="exampleEmail">
+                        Password Confirmation:
+                    </Label>
                 </FormGroup>
-                {' '}
+                    {' '}
                 <Button>
-                Submit
+                    Submit
                 </Button>
             </Form>
             <div id="signupbutton">
