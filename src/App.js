@@ -27,6 +27,8 @@ const App = () => {
         <Route path="/movienew" element={<MovieNew />}/>
         <Route path="/usermovies" element={<UserMovies />}/>
         <Route path="/movieshow" element={<MovieShow />}/>
+        <Route path="/movieindex" element={<MovieIndex movies={movies} currentUser={currentUser}/>}/>
+        <Route path="/movieshow/:id" element={<MovieShow />}/>
         <Route path="/movieedit" element={<MovieEdit />}/>
         <Route path="/aboutus" element={<AboutUs />}/>
         <Route path="/signup" element={<SignUp />}/>

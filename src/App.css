@@ -209,3 +209,23 @@ h1{
     }
   }
 }
+/* Index Page Styling */
+#index-container{
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+#card{
+  border: solid;
+}
+
+#card-title{
+  text-align: center;
+  font-weight: 700;
+}
+
+#body, #rating, #show-button{
+  text-align: center;
+}
