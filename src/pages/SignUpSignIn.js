@@ -5,6 +5,7 @@ import Ticket from "../assets/SignUpTicket.png"
 import Ticket1 from "../assets/SignInTicket.png"
 import Booth from "../assets/ticketbooth.png"
 import { Link } from "react-router-dom"
+import Footer from "../component/Footer"
 
 const SignInSignUp = () => {
     return(
@@ -34,6 +35,7 @@ const SignInSignUp = () => {
                     </Link>
                 </div>
             </div>
+            <Footer/>
         </body>
     )
 }

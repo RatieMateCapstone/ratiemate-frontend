@@ -1,6 +1,7 @@
 import React from "react";
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
 import { Link } from 'react-router-dom'
+import Footer from "../component/Footer"
 
 const SignUp = () => {
     return(
@@ -66,6 +67,7 @@ const SignUp = () => {
                     </button>
                 </Link>
             </div>
+            <Footer/>
         </div>
     )
 }
