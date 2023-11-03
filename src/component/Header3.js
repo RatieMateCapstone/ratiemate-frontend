@@ -9,6 +9,10 @@ const Header3 = ({ direction }) => {
     const [dropdownOpen, setDropdownOpen] = useState(false);
 
     const toggle = () => setDropdownOpen((prevState) => !prevState);
+    
+    Header3.propTypes = {
+        direction: PropTypes.string,
+    };
     return(
         <>
             <Navbar id="bar" dark >
@@ -46,8 +50,5 @@ const Header3 = ({ direction }) => {
     )
 }
 
-Header3.propTypes = {
-    direction: PropTypes.string,
-  };
 
 export default Header3
