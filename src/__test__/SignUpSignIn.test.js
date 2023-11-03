@@ -10,7 +10,7 @@ describe("<SignUpSignIn />", () => {
             </BrowserRouter>
         )
         const webTitle = screen.getByRole("heading",  {
-            name: /movie matcher/i
+            name: /ratie mate/i
         })
         expect(webTitle).toBeInTheDocument()
     })

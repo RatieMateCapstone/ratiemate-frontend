@@ -5,13 +5,14 @@ import Ticket from "../assets/SignUpTicket.png"
 import Ticket1 from "../assets/SignInTicket.png"
 import Booth from "../assets/ticketbooth.png"
 import { Link } from "react-router-dom"
+import Footer from "../component/Footer"
 
 const SignInSignUp = () => {
     return(
         <body>
             <div className="sign-container">
                 <img src={Sign} alt="Movie Theater Sign" className="sign"/>
-                <h2 className="webtitle">Movie Matcher</h2>
+                <h2 className="webtitle">Ratie Mate</h2>
             </div>
             <div className="bottom-container">
                 <div className="ticket">
@@ -34,6 +35,7 @@ const SignInSignUp = () => {
                     </Link>
                 </div>
             </div>
+            <Footer/>
         </body>
     )
 }
