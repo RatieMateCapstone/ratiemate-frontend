@@ -5,15 +5,26 @@ import mockMovies from "../mockMovies"
 import mockUsers from "../mockUsers"
 
 describe("<MovieIndex />", () => {
-    it("renders a movie title", () => {
+    it("renders a page title", () => {
         render(
             <BrowserRouter>
                 <MovieIndex movies={mockMovies} currentUser={mockUsers}/>
             </BrowserRouter>
         )
-        const movieName = screen.getByRole('heading', {
-            name: /born again/i
+        const pageTitle = screen.getByRole('heading', {
+            name: /movies/i
           })
-        expect(movieName).toBeInTheDocument()
+        expect(pageTitle).toBeInTheDocument()
+    })
+    it("renders a image", () => {
+        const { container } = render(
+            <BrowserRouter>
+                <MovieIndex movies={mockMovies} currentUser={mockUsers}/>
+            </BrowserRouter>
+        )
+        mockMovies.forEach((movies) => {
+            const movieImage = container.querySelector('#card > img')
+            expect(movieImage).toBeInTheDocument()
+        })
     })
 })

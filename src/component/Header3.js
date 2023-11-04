@@ -22,7 +22,7 @@ const Header3 = ({ direction }) => {
                 </NavbarBrand>
                 </div>
                 <div className="links-header1">
-                    <NavLink to="/movienew" id="link">
+                    <NavLink to="/movieindex" id="link">
                         All Movies
                     </NavLink>
                     <Dropdown isOpen={dropdownOpen} toggle={toggle} direction={direction}>
