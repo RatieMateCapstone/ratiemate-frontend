@@ -49,6 +49,7 @@ JS: Need to connect log out option, so it navigates user back to signinsignup pa
 
 ## Branch: index-show
 Started working on the index page and the show page. We can now see all the movies in the database. Want to add sign to the index to show the movies.
+
 CSS: Add hover over icon to let user know that you can click on it!!
 JS: Need to fix so that the user who added the data will be shown when you can see who created the entry. 
 

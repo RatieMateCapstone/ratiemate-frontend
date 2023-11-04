@@ -14,7 +14,7 @@ const MovieIndex = ({ movies, currentUser }) => {
             <main id="index-container">
                 {movies?.map((movie, index) => {
                     return(
-                        <div key={index}>
+                        <div key={index} className="card-container">
                         <Card style={{ width: '18rem' }} id="card">
                             <img alt={`visual for: ${movie.title} the movie`} src={`${movie.image}`}/>
                                 <CardBody>
