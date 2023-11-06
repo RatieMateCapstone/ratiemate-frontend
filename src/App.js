@@ -19,14 +19,14 @@ const App = () => {
   const [currentUser, setCurrentUser] = useState(mockUsers[0])
  
   return(
-    <>
+    <body>
       <Routes>
         <Route path="/" element={<SignInSignUp />}/>
         <Route path="/home" element={<Home />}/>
-        <Route path="/movieindex" element={<MovieIndex />}/>
+        <Route path="/movieindex" element={<MovieIndex movies={movies} currentUser={currentUser}/>}/>
         <Route path="/movienew" element={<MovieNew />}/>
         <Route path="/usermovies" element={<UserMovies />}/>
-        <Route path="/movieshow" element={<MovieShow />}/>
+        <Route path="/movieshow/:id" element={<MovieShow movies={movies} currentUser={currentUser}/>}/>
         <Route path="/movieedit" element={<MovieEdit />}/>
         <Route path="/aboutus" element={<AboutUs />}/>
         <Route path="/signup" element={<SignUp />}/>
@@ -34,7 +34,7 @@ const App = () => {
         <Route path="*" element={<NotFound />}/>
       </Routes>
   
-    </>
+    </body>
   )
 
 }

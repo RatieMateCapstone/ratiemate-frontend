@@ -11,6 +11,7 @@ describe("<Footer />", () => {
             </BrowserRouter>
         )
         const names = screen.getByText(/ratie mate © ilene, roniel, adrian, and tori/i)
+        expect(names).toBeInTheDocument()
     })
     it("renders a navigation link", () => {
         render(
@@ -21,5 +22,7 @@ describe("<Footer />", () => {
         const aboutUsLink = screen.getByRole('link', {
             name: /about us/i
         }) 
+        expect(aboutUsLink).toBeInTheDocument()
+
     })
 })
