@@ -26,7 +26,7 @@ describe("<MovieShow />", () => {
         )   
         const movieDescription = screen.getByText(
             /ex marine who turned his life to the lord has now been called back into action/i
-            )
+        )
         expect(movieDescription).toBeInTheDocument()
     })
 })
