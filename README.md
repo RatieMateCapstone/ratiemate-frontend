@@ -67,3 +67,39 @@ Use:
 ```
 
 ## Branch: home-notfound
+<div className="film-container">
+                <div className="col1">
+                    <div className="film1-image">
+                        <img src={MovieFilm} alt="Movie film" className="movie-film"/>
+                        <div className="tori-container">
+                            <Card style={{ width: '18rem'}} id="tori-card">
+                                <img alt="Tori" src={Tori} className="tori-image"/>
+                                <CardBody>
+                                    <CardTitle tag="h5">
+                                        Tori Calkins
+                                    </CardTitle>
+                                    <CardSubtitle className="mb-2 text-muted" tag="h6">
+                                        Project Manager
+                                    </CardSubtitle>
+                                    <CardText id="text">
+                                    Hello! I'm Tori Calkins from San Diego, California. I am a former customer service worker going into full-stack web development. When I'm not coding, I enjoy going country dancing in a local brewery, binge watching movies I've seen 100 times, and spending time with my family and friends.
+                                    </CardText>
+                                    <div className="social-container">
+                                        <NavLink>
+                                            <AiFillLinkedin className="social-links"/>
+                                        </NavLink>
+                                        <NavLink>
+                                            <AiFillGithub className="social-links"/>
+                                        </NavLink>
+                                    </div>
+                                </CardBody>
+                            </Card>
+                        </div>
+                    </div>
+                    <img src={MovieFilm} alt="Movie film" className="movie-film"/>
+                </div>
+                <div className="col2">
+                    <img src={MovieFilm} alt="Movie film" className="movie-film"/>
+                    <img src={MovieFilm} alt="Movie film" className="movie-film"/>
+                </div>
+            </div>

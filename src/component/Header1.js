@@ -5,12 +5,12 @@ import User from "../assets/user.png"
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import PropTypes from 'prop-types';
 
-const Header = ({ direction }) => {
+const Header1 = ({ direction }) => {
     const [dropdownOpen, setDropdownOpen] = useState(false);
     
     const toggle = () => setDropdownOpen((prevState) => !prevState);
     
-    Header.propTypes = {
+    Header1.propTypes = {
         direction: PropTypes.string,
     };
     return(
@@ -55,4 +55,4 @@ const Header = ({ direction }) => {
 
   
 
-export default Header
+export default Header1

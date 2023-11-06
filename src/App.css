@@ -294,3 +294,71 @@ h1{
   margin-left: 30%;
   margin-right: 30%;
 }
+
+/* About Us Page Styling */
+.film-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  text-align: center;
+  margin-bottom: 77px;
+}
+
+.col1{
+  flex: 1;
+  text-align: center;
+  position: relative;
+}
+
+.film1-image {
+  position: relative;
+}
+
+.movie-film {
+  margin-left: 100px;
+  margin-right: 100px;
+  height: 500px;
+  width: 400px;
+}
+
+.container1{
+  position: absolute;
+  bottom: 500px;
+  left: 0;
+  width: 100%;
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  bottom: 50px;
+  top: 2px;
+  bottom: -30px;
+}
+
+#tori-card, #roniel-card{
+  margin: auto;
+  top: -0.3%;
+}
+
+#adrian-card, #ilene-card{
+  margin: auto;
+}
+
+#text{
+  font-size: small;
+}
+
+#social-container{
+  display: flex; 
+}
+
+.linkedin, .github{
+  font-size: 25px;
+  color: black;
+  margin-left: 5px;
+}
+
+.linkedin:hover, .github:hover{
+  color:maroon;
+}
