@@ -47,3 +47,59 @@ Worked on header. Header1 needs on click functionality for account icon to have 
 CSS Stretch: Fix the border on account icon
 JS: Need to connect log out option, so it navigates user back to signinsignup page
 
+## Branch: index-show
+Started working on the index page and the show page. We can now see all the movies in the database. Want to add sign to the index to show the movies.
+ya
+CSS: Add hover over icon to let user know that you can click on it!!
+JS: Need to fix so that the user who added the data will be shown when you can see who created the entry. 
+
+The show page testing was a little different. Instead of using:
+```jsx
+<BrowserRouter>
+```
+Use:
+```jsx
+<MemoryRouter>
+    <Routes>
+        <Route />
+    <Routes>
+</MemoryRouter>
+```
+
+## Branch: home-notfound
+<div className="film-container">
+                <div className="col1">
+                    <div className="film1-image">
+                        <img src={MovieFilm} alt="Movie film" className="movie-film"/>
+                        <div className="tori-container">
+                            <Card style={{ width: '18rem'}} id="tori-card">
+                                <img alt="Tori" src={Tori} className="tori-image"/>
+                                <CardBody>
+                                    <CardTitle tag="h5">
+                                        Tori Calkins
+                                    </CardTitle>
+                                    <CardSubtitle className="mb-2 text-muted" tag="h6">
+                                        Project Manager
+                                    </CardSubtitle>
+                                    <CardText id="text">
+                                    Hello! I'm Tori Calkins from San Diego, California. I am a former customer service worker going into full-stack web development. When I'm not coding, I enjoy going country dancing in a local brewery, binge watching movies I've seen 100 times, and spending time with my family and friends.
+                                    </CardText>
+                                    <div className="social-container">
+                                        <NavLink>
+                                            <AiFillLinkedin className="social-links"/>
+                                        </NavLink>
+                                        <NavLink>
+                                            <AiFillGithub className="social-links"/>
+                                        </NavLink>
+                                    </div>
+                                </CardBody>
+                            </Card>
+                        </div>
+                    </div>
+                    <img src={MovieFilm} alt="Movie film" className="movie-film"/>
+                </div>
+                <div className="col2">
+                    <img src={MovieFilm} alt="Movie film" className="movie-film"/>
+                    <img src={MovieFilm} alt="Movie film" className="movie-film"/>
+                </div>
+            </div>
