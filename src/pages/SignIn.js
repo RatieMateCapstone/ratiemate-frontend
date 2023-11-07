@@ -1,50 +1,36 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Footer from "../component/Footer"
 
-const SignIn = () => {
+const SignIn = ({login}) => {
+    const formRef = useRef()
+    const navigate = useNavigate()
+   
+    const handleSubmit = (e) => {
+      e.preventDefault()
+      const formData = new FormData(formRef.current)
+      const data = Object.fromEntries(formData)
+      const userInfo = {
+        "user": { email: data.email, password: data.password }
+      }
+          login(userInfo)
+          navigate('/movieindex')
+          e.target.reset()
+    }
+  
     return(
-        <>
-            <Form id="form">
-                <h1>Sign In</h1>
-                <FormGroup floating>
-                    <Input
-                        id="username"
-                        name="username"
-                        placeholder="username"
-                        type="string"
-                    />
-                    <Label for="examplePassword">
-                        Username:
-                    </Label>
-                </FormGroup>
-                    {' '}
-                <FormGroup floating>
-                    <Input
-                        id="password"
-                        name="password"
-                        placeholder="password"
-                        type="string"
-                    />
-                    <Label for="exampleEmail">
-                        Password:
-                    </Label>
-                </FormGroup>
-                    {' '}
-                <Button>
-                    Submit
-                </Button>
-            </Form>
-            <div id="signupbutton">
-                <Link to="/">
-                    <button id="gobackbutton">
-                        Go Back 
-                    </button>
-                </Link>
-            </div>
-            <Footer/>
-        </>
+        <div>
+          <form id="form" ref={formRef} onSubmit={handleSubmit}>
+             Email: <input type="email" name='email' placeholder="email" />
+             <br/>
+             Password: <input type="password" name='password' placeholder="password" />
+             <br/>
+             <input type='submit' value="Login" />
+          </form>
+            <br />
+            <div>Not registered yet, <a href="/signup">Signup</a> </div>
+        </div>
     )
 }
 
