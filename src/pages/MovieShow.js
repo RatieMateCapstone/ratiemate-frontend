@@ -8,6 +8,7 @@ import { SiYoutube, SiNetflix, SiHulu, SiHbo } from "react-icons/si";
 import { TbBrandDisney } from "react-icons/tb";
 import { PiTelevisionSimpleBold } from "react-icons/pi"
 import { Link } from "react-router-dom";
+import Sign from "../assets/cinemaSign.gif"
 
 const MovieShow = ({ movies, currentUser }) => {
   const { id } = useParams()
@@ -24,7 +25,7 @@ const MovieShow = ({ movies, currentUser }) => {
   const IconComponent = iconMap[currentMovie.platform] || PiTelevisionSimpleBold
   
   return(
-    <>
+    <body id="movieShow">
       <Header1 />
       {currentMovie ? (
         <>
@@ -50,7 +51,7 @@ const MovieShow = ({ movies, currentUser }) => {
         <NotFound />
       )}
       <Footer/>
-    </>
+    </body>
   )
 }
 
