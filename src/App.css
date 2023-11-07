@@ -1,30 +1,47 @@
 body{
+  background-image: url("./assets/capstonebackground.png");
+  background-size: cover;
+}
 
+body#movieIndex{
+  background-image: none;
+  background-color: maroon;
+}
+
+body#movieShow{
+  background-image: none;
+  background-color: maroon;
+}
+
+body#aboutUs{
+  background-image: none;
   background-color: maroon;
 }
 
 /* Sign In/Sign Up Page */
 .sign-container{
   text-align: center;
+  margin-top: 50px;
 }
 
 .sign{
-  height: 300px;
-  transform: rotate(90deg);
+  height: 200px;
+  background-color: #FBD4C4;
 }
 
 .webtitle{
-  color: white;
   position: absolute;
   top: 150px;
   left: 50%;
   transform: translate(-50%, -50%);
+  font-size: 60px;
 }
 
 .bottom-container{
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
+  padding-bottom: 100px;
 }
 
 .ticket{
@@ -79,7 +96,6 @@ h1{
 }
 
 /* Navbar Header Styling */
-/* Header1 */
 .logo{
   height: 90px;
 }
@@ -132,9 +148,9 @@ h1{
     border-bottom-left-radius:0px;
     color:black;
     &:before,&:after{
-    width:100%;
-    height:100%;
-    border-color:black;
+      width:100%;
+      height:100%;
+      border-color:black;
     }
   }
 }
@@ -209,6 +225,23 @@ h1{
   }
 }
 /* Index Page Styling */
+.signpages-container{
+  text-align: center;
+}
+
+.pagesigns{
+  margin-top: 30px;
+  height: 100px;
+  background-color: #FBD4C4;
+}
+
+.signtext{
+  position: absolute;
+  top: 150px; 
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 #index-container{
   display: flex;
   justify-content: space-evenly;
@@ -252,7 +285,7 @@ h1{
 
 /* Show Page Styling */
 .movie-title{
-  color: black;
+  color: white;
 }
 
 .movie-attributes{
@@ -263,7 +296,9 @@ h1{
 .show-container{
   text-align: center;
   padding: 20px;
-  margin-bottom: 10%;
+  margin-bottom: 5%;
+  color: white;
+  padding-bottom: 40%;
 }
 
 #show-rating{
@@ -368,3 +403,5 @@ h1{
   display: flex;
   justify-content: center;
 }
+
+/*  */

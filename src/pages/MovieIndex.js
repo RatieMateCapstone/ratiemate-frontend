@@ -5,12 +5,16 @@ import "../App.css"
 import { NavLink } from "react-router-dom";
 import Header2 from "../component/Header2"
 import Footer from "../component/Footer"
+import Sign from "../assets/cinemaSign.gif"
 
 const MovieIndex = ({ movies, currentUser }) => {
     return(
-        <>
+        <body id="movieIndex">
             <Header2 />
-            <h1>Movies</h1>
+            <div className="signpages-container">
+                <img src={Sign} alt="Movie Theater Sign" className="pagesigns"/>
+                <h2 className="signtext">Movies</h2>
+            </div>
             <main id="index-container">
                 {movies?.map((movie, index) => {
                     return(
@@ -48,7 +52,7 @@ const MovieIndex = ({ movies, currentUser }) => {
                 })}
             </main>
             <Footer/>
-        </>
+        </body>
     )
 }
 

@@ -25,7 +25,7 @@ const mockMovies = [
         id: 3,
         title: 'Whispers Of Decay',
         genre: 'Horror',
-        image: 'https://unsplash.com/photos/person-behind-fog-glass-ZC0EbdLC8G0',
+        image: 'https://images.unsplash.com/photo-1519575706483-221027bfbb31?w=400&auto=format&fit=cro[…]3wxMjA3fDB8MHxzZWFyY2h8MTh8fGhvcnJvcnxlbnwwfHwwfHx8MA%3D%3D',
         trailer: 'https://www.youtube.com/watch?v=E_Ty9L3P3Ls&list=PLY4oAfouVgHI_DzPRn4ixYibkM03x-QIA&ab_channel=ElysiumAudioLabs',
         rating: 2,
         description: "Masked man hunting people",
