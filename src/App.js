@@ -14,6 +14,7 @@ import MovieNew from "./pages/MovieNew.js";
 import UserMovies from "./pages/UserMovies.js";
 
 const App = () => {
+
   const [movies, setMovies] = useState(mockMovies)
   const [currentUser, setCurrentUser] = useState(mockUsers[0])
  
@@ -36,3 +37,5 @@ const App = () => {
     </>
   )
 
+  }
+export default App
