@@ -1,75 +1,95 @@
-import React from "react";
+import React, { useRef } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
-import { Link } from 'react-router-dom'
-import Footer from "../component/Footer"
+import Footer from "../component/Footer";
 
-const SignUp = () => {
-    return(
-        <div>
-            <Form id="form">
-                <h1>Sign Up</h1>
-                <FormGroup floating>
-                    <Input 
-                        id="email"
-                        name="email"
-                        placeholder="email"
-                        type="string"
-                    />
-                    <Label for="exampleEmail">
-                        Email:
-                    </Label>
-                </FormGroup>
-                    {' '}
-                <FormGroup floating>
-                    <Input
-                        id="username"
-                        name="username"
-                        placeholder="username"
-                        type="string"
-                    />
-                    <Label for="examplePassword">
-                        Username:
-                    </Label>
-                </FormGroup>
-                    {' '}
-                <FormGroup floating>
-                    <Input
-                        id="password"
-                        name="password"
-                        placeholder="password"
-                        type="string"
-                    />
-                    <Label for="exampleEmail">
-                        Password:
-                    </Label>
-                </FormGroup>
-                    {' '}
-                <FormGroup floating>
-                    <Input
-                        id="confirmpassword"
-                        name="confirmpassword"
-                        placeholder="confirm password"
-                        type="string"
-                    />
-                    <Label for="exampleEmail">
-                        Password Confirmation:
-                    </Label>
-                </FormGroup>
-                    {' '}
-                <Button>
-                    Submit
-                </Button>
-            </Form>
-            <div id="signupbutton">
-                <Link to="/">
-                    <button id="gobackbutton">
-                        Go Back 
-                    </button>
-                </Link>
-            </div>
-            <Footer/>
-        </div>
-    )
-}
+const SignUp = ({ signup }) => {
+  const formRef = useRef(null);
+  const navigate = useNavigate();
 
-export default SignUp
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!(formRef.current instanceof HTMLFormElement)) {
+      console.error("formRef.current is not an HTML form element");
+      return;
+    }
+
+    const formData = new FormData(formRef.current);
+
+    const data = Object.fromEntries(formData);
+
+    const userInfo = {
+      user: {
+        email: data.email,
+        password: data.password,
+        password_confirmation: data.confirmpassword
+      }
+    };
+
+    try {
+      await signup(userInfo);
+      navigate('/movieindex');
+      formRef.current.reset();
+    } catch (error) {
+      console.error('Signup failed:', error);
+    }
+  };
+
+  return (
+    <div>
+      <Form id="form" innerRef={formRef} onSubmit={handleSubmit}>
+        <h1>Sign Up</h1>
+        <FormGroup>
+          <Label for="email">Email:</Label>
+          <Input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="email"
+          />
+        </FormGroup>
+        {' '}
+        <FormGroup>
+          <Label for="username">Username:</Label>
+          <Input
+            type="text"
+            name="username"
+            id="username"
+            placeholder="username"
+          />
+        </FormGroup>
+        {' '}
+        <FormGroup>
+          <Label for="password">Password:</Label>
+          <Input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="password"
+          />
+        </FormGroup>
+        {' '}
+        <FormGroup>
+          <Label for="confirmpassword">Password Confirmation:</Label>
+          <Input
+            type="password"
+            name="confirmpassword"
+            id="confirmpassword"
+            placeholder="confirm password"
+          />
+        </FormGroup>
+        {' '}
+        <Button type="submit">Submit</Button>
+      </Form>
+      <div id="signupbutton">
+        <Link to="/">
+          <button id="gobackbutton">Go Back</button>
+        </Link>
+      </div>
+      <Footer />
+    </div>
+  );
+};
+
+export default SignUp;
