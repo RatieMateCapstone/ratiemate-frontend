@@ -14,9 +14,9 @@ const SignIn = ({login}) => {
     const userInfo = {
       "user": { email: data.email, password: data.password }
     }
-        login(userInfo)
-        navigate('/movieindex')
-        e.target.reset()
+    login(userInfo)
+    navigate('/movieindex')
+    e.target.reset()
   }
 
   return(
@@ -24,17 +24,19 @@ const SignIn = ({login}) => {
       <div id="content-container">
         <form id="form" ref={formRef} onSubmit={handleSubmit}>
           <h1>Sign In</h1>
-          Email: <input type="email" name='email' placeholder="email" />
-          <br/>
-          Password: <input type="password" name='password' placeholder="password" />
-          <br/>
-          <input type='submit' value="Login" />
-        <div>
-          Not registered yet, 
+            Email: 
+            <input type="email" name='email' placeholder="email" />
+            <br/>
+            Password: 
+            <input type="password" name='password' placeholder="password" />
+            <br/>
+            <input type='submit' value="Login" />
+          <div>
+            Not registered yet, 
           <NavLink to="/signup">
             Sign Up
           </NavLink> 
-        </div>
+          </div>
         </form>
       </div>
       <Footer />
