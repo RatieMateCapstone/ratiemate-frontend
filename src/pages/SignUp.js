@@ -30,7 +30,7 @@ const SignUp = ({ signup }) => {
 
     try {
       await signup(userInfo);
-      navigate('/movieindex');
+      navigate('/signin');
       formRef.current.reset();
     } catch (error) {
       console.error('Signup failed:', error);
