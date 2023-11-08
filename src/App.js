@@ -48,6 +48,37 @@ const App = () => {
         });
     });
   };
+  const login = (userInfo) => {
+    return new Promise((resolve, reject) => {
+     fetch(`${url}/login`, {
+      method: 'POST',
+      headers: {
+       'Content-Type': 'application/json',
+       'Accept': 'application/json',
+      },
+      body: JSON.stringify(userInfo),
+     })
+      .then((response) => {
+       if (!response.ok) {
+        console.error('Login failed - response:', response);
+        reject('Login failed');
+        return;
+       }
+       localStorage.setItem('token', response.headers.get('Authorization'));
+       return response.json();
+      })
+      .then((user) => {
+       setCurrentUser(user);
+       console.log('Login successful:', user);
+       resolve(user);
+      })
+      .catch((error) => {
+       console.error('Login error:', error);
+       reject(error);
+      });
+    });
+   };
+  
 
   const createMovie = (movie) => {
     console.log(movie)
@@ -65,7 +96,7 @@ const App = () => {
         <Route path="/movieedit" element={<MovieEdit />} />
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/signup" element={<SignUp signup={signup} />} />
-        <Route path="/signin" element={<SignIn />} />
+        <Route path="/signin" element={<SignIn login={login}/>} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>
