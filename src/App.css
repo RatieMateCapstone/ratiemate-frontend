@@ -1,6 +1,21 @@
 body{
   background-image: url("./assets/capstonebackground.png");
   background-size: cover;
+  background-repeat: no-repeat;
+}
+
+body#signinsignup{
+  background-image: url("./assets/capstonebackground.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width:100vw;
+  height: 100vh;
+}
+
+body#signinorsignup{
+  background-image: url("./assets/capstonebackground.png");
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 body#movieIndex{
@@ -11,6 +26,8 @@ body#movieIndex{
 body#movieShow{
   background-image: none;
   background-color: maroon;
+  width:100vw;
+  height: 100vh;
 }
 
 body#aboutUs{
@@ -18,10 +35,21 @@ body#aboutUs{
   background-color: maroon;
 }
 
+body#movieNew{
+  background-image: url("./assets/capstonebackground.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
 /* Sign In/Sign Up Page */
+#choice-container{
+  top: 100px;
+  border: solid;
+}
+
 .sign-container{
   text-align: center;
-  margin-top: 50px;
+  padding: 50px;
 }
 
 .sign{
@@ -66,8 +94,17 @@ body#aboutUs{
   margin-top: 20px;
 }
 
-
 /* Sign Up and Sign In page styling */
+#content-container {
+  position: relative;
+  top: 200px; 
+}
+
+#content-container1 {
+  position: relative;
+  top: 100px; 
+} 
+
 #form {
   background: #fbd4c4;
   border: 1px solid #dedede;
@@ -76,15 +113,14 @@ body#aboutUs{
   justify-content: space-around;
   margin: 0 auto;
   max-width: 500px;
-  padding: 30px 50px;
-  margin-top: 225px;
+  padding: 10px 50px;
 }
 
 h1{
   text-align: center;
 }
 
-#signupbutton{
+#signupbutton, #movieNewButton{
   text-align: center;
   margin-top: 20px;
   font-size: 20px;
@@ -93,6 +129,7 @@ h1{
 #gobackbutton{
   background: rgb(97, 96, 96);
   color: white;
+  margin-bottom: 100px;
 }
 
 /* Navbar Header Styling */
@@ -112,7 +149,6 @@ h1{
 .links-header1{
   display: flex;
 }
-
 
 #link {
   text-decoration: none;
@@ -224,6 +260,7 @@ h1{
     }
   }
 }
+
 /* Index Page Styling */
 .signpages-container{
   text-align: center;
@@ -246,19 +283,19 @@ h1{
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
-  padding: 70px 0;
+  margin-bottom: 50px;
 }
 
 .card-container{
   display: flex;
   flex-wrap: wrap;
   gap: 10px; 
+  margin-bottom: 50px;
 }
 
 #card{
   margin-bottom: auto;
   margin-top: auto;
-  bottom: 30px;
 }
 
 #card-title{
@@ -291,25 +328,30 @@ h1{
 .movie-attributes{
   display: flex;
   justify-content: center;
+  padding: 10px;
+  color: black;
 }
 
 .show-container{
   text-align: center;
   padding: 20px;
-  margin-bottom: 5%;
-  color: white;
-  padding-bottom: 40%;
+  color: black;
 }
 
 #show-rating{
-  padding: 5px;
   margin-right: 50px;
+  margin-left: 50px;
+  background-color: #FBD4C4;
+  padding-top: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 #icon{
   height: 40px;
   width: 30px;
   color: black;
+  padding-right: 10px;
 }
 
 #icon:hover{
@@ -317,17 +359,38 @@ h1{
 }
 
 .show-user{
-  padding: 5px;
+  padding: 10px;
   margin-left: 50px;
+  background-color: #FBD4C4;
 }
 
 #show-image{
   height: 300px;
 }
 
+.movie-genre{
+  border: solid;
+  display: inline-block;
+  background-color: #FBD4C4;
+  padding: 3px;
+}
+
 .show-description{
-  margin-left: 30%;
-  margin-right: 30%;
+  width: 500px;
+  margin: auto;
+  margin-bottom: 100px;
+  background-color: #FBD4C4;
+  padding: 10px;
+}
+
+.watch{
+  display: flex;
+  text-decoration: none;
+  color: black;
+  background-color: #FBD4C4;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 /* About Us Page Styling */
@@ -402,6 +465,19 @@ h1{
 #notfound{
   display: flex;
   justify-content: center;
+}
+
+/* Movie New Page */
+#formNew{
+  background: #fbd4c4;
+  border: 1px solid #dedede;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin: 0 auto;
+  max-width: 500px;
+  padding: 10px 50px;
+  margin-top: 40px;
 }
 
 /*  */

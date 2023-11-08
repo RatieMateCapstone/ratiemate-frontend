@@ -49,13 +49,17 @@ const App = () => {
     });
   };
 
+  const createMovie = (movie) => {
+    console.log(movie)
+  }
+
   return (
     <>
       <Routes>
         <Route path="/" element={<SignInSignUp signup={signup} />} />
         <Route path="/home" element={<Home />} />
         <Route path="/movieindex" element={<MovieIndex />} />
-        <Route path="/movienew" element={<MovieNew />} />
+        <Route path="/movienew" element={<MovieNew createMovie={createMovie} />} />
         <Route path="/usermovies" element={<UserMovies />} />
         <Route path="/movieshow" element={<MovieShow />} />
         <Route path="/movieedit" element={<MovieEdit />} />

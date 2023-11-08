@@ -8,7 +8,6 @@ import { SiYoutube, SiNetflix, SiHulu, SiHbo } from "react-icons/si";
 import { TbBrandDisney } from "react-icons/tb";
 import { PiTelevisionSimpleBold } from "react-icons/pi"
 import { Link } from "react-router-dom";
-import Sign from "../assets/cinemaSign.gif"
 
 const MovieShow = ({ movies, currentUser }) => {
   const { id } = useParams()
@@ -33,16 +32,21 @@ const MovieShow = ({ movies, currentUser }) => {
             <h1 className="movie-title">{currentMovie.title}</h1>
             <div className="movie-attributes">
               <Rating name="read-only" id="show-rating" value={`${currentMovie.rating}`} readOnly />
-              <Link to={`${currentMovie.trailer}`}>
-                <IconComponent id="icon"/>
-              </Link>
-              <h4 className="show-user">Created by: {currentUser.username}</h4>
+              <div className="watch">
+                <h6 className="watch">Watch Trailer:</h6>
+                <Link to={`${currentMovie.trailer}`} target="_blank">
+                  <IconComponent id="icon"/>
+                </Link>
+              </div>
+              <h3 className="show-user">Added by: {currentUser.username}</h3>
             </div>       
             <div>
               <img src={`${currentMovie.image}`} alt={`visual for: ${currentMovie.title} the movie`} id="show-image"/>
             </div>
             <div>
-              <p>Genre: {currentMovie.genre}</p>
+              <div>
+                <h6 className="movie-genre">Genre: {currentMovie.genre}</h6>
+              </div>
               <p className="show-description">{currentMovie.description}</p>
             </div>
           </div>
