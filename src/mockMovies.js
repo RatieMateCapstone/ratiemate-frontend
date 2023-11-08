@@ -1,7 +1,7 @@
 const mockMovies = [
     {
         id: 1,
-        title: 'born again',
+        title: 'Born Again',
         genre: 'action',
         image: 'https://images.unsplash.com/photo-1627465688839-f088954a40a0?auto=format&fit=crop&q=80&w=982&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
         trailer: 'https://www.youtube.com/watch?v=V-yt7-DJZyY&ab_channel=Soundridemusic-NoCopyrightMusic',
@@ -29,7 +29,7 @@ const mockMovies = [
         trailer: 'https://www.youtube.com/watch?v=E_Ty9L3P3Ls&list=PLY4oAfouVgHI_DzPRn4ixYibkM03x-QIA&ab_channel=ElysiumAudioLabs',
         rating: 2,
         description: "Masked man hunting people",
-        platform: 'Netflix',
+        platform: 'Youtube',
         user_id: 3
     },
 ]

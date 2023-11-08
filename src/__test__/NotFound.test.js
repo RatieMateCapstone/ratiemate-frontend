@@ -10,7 +10,7 @@ describe("<NotFound />", () => {
             </BrowserRouter>
         )
        const notfoundImage = screen.getByRole('img', {
-            name: /404 image/i
+            name: /404 error screen/i
         })
         expect(notfoundImage).toBeInTheDocument()
     })

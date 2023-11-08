@@ -9,30 +9,32 @@ import Footer from "../component/Footer"
 
 const SignInSignUp = () => {
     return(
-        <body id="signinsignu">
-            <div className="sign-container">
-                <img src={Sign} alt="Movie Theater Sign" className="sign"/>
-                <h2 className="webtitle">Ratie Mate</h2>
-            </div>
-            <div className="bottom-container">
-                <div className="ticket">
-                    <img src={Ticket} alt="Movie Ticket" className="ticket"/>
-                    <Link to="/signup" id="button">
-                        <button>
-                            Sign Up
-                        </button>
-                    </Link>
+        <body id="signinorsignup">
+            <div id="choice-container">
+                <div className="sign-container">
+                    <img src={Sign} alt="Movie Theater Sign" className="sign"/>
+                    <h2 className="webtitle">Ratie Mate</h2>
                 </div>
-                <div>
-                    <img src={Booth} alt="Ticket Booth" className="booth"/>
-                </div>
-                <div className="ticket">
-                    <img src={Ticket1} alt="Movie Ticket" className="ticket"/>
-                    <Link to="/signin" id="button">
-                        <button>
-                            Sign In
-                        </button>
-                    </Link>
+                <div className="bottom-container">
+                    <div className="ticket">
+                        <img src={Ticket} alt="Movie Ticket" className="ticket"/>
+                        <Link to="/signup" id="button">
+                            <button>
+                                Sign Up
+                            </button>
+                        </Link>
+                    </div>
+                    <div>
+                        <img src={Booth} alt="Ticket Booth" className="booth"/>
+                    </div>
+                    <div className="ticket">
+                        <img src={Ticket1} alt="Movie Ticket" className="ticket"/>
+                        <Link to="/signin" id="button">
+                            <button>
+                                Sign In
+                            </button>
+                        </Link>
+                    </div>
                 </div>
             </div>
             <Footer/>

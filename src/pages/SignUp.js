@@ -1,7 +1,8 @@
 import React, { useRef } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
+import { useNavigate } from "react-router-dom";
+import { Form, FormGroup, Label, Input} from 'reactstrap';
 import Footer from "../component/Footer";
+import { NavLink } from "react-router-dom"
 
 const SignUp = ({ signup }) => {
   const formRef = useRef(null);
@@ -37,58 +38,61 @@ const SignUp = ({ signup }) => {
   };
 
   return (
-    <div>
-      <Form id="form" innerRef={formRef} onSubmit={handleSubmit}>
-        <h1>Sign Up</h1>
-        <FormGroup>
-          <Label for="email">Email:</Label>
-          <Input
-            type="email"
-            name="email"
-            id="email"
-            placeholder="email"
-          />
-        </FormGroup>
-        {' '}
-        <FormGroup>
-          <Label for="username">Username:</Label>
-          <Input
-            type="text"
-            name="username"
-            id="username"
-            placeholder="username"
-          />
-        </FormGroup>
-        {' '}
-        <FormGroup>
-          <Label for="password">Password:</Label>
-          <Input
-            type="password"
-            name="password"
-            id="password"
-            placeholder="password"
-          />
-        </FormGroup>
-        {' '}
-        <FormGroup>
-          <Label for="confirmpassword">Password Confirmation:</Label>
-          <Input
-            type="password"
-            name="confirmpassword"
-            id="confirmpassword"
-            placeholder="confirm password"
-          />
-        </FormGroup>
-        {' '}
-        <Button type="submit">Submit</Button>
-      </Form>
-      <div id="signupbutton">
-        <Link to="/">
-          <button id="gobackbutton">Go Back</button>
-        </Link>
-      </div>
+    <body id="signinsignup">
+      <div id="content-container1">
+        <Form id="form" innerRef={formRef} onSubmit={handleSubmit}>
+          <h1>Sign Up</h1>
+          <FormGroup>
+            <Label for="email">Email:</Label>
+            <Input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="email"
+              />
+          </FormGroup>
+          {' '}
+          <FormGroup>
+            <Label for="username">Username:</Label>
+            <Input
+              type="text"
+              name="username"
+              id="username"
+              placeholder="username"
+              />
+          </FormGroup>
+          {' '}
+          <FormGroup>
+            <Label for="password">Password:</Label>
+            <Input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="password"
+              />
+          </FormGroup>
+          {' '}
+          <FormGroup>
+            <Label for="confirmpassword">Password Confirmation:</Label>
+            <Input
+              type="password"
+              name="confirmpassword"
+              id="confirmpassword"
+              placeholder="confirm password"
+              />
+          </FormGroup>
+          {' '}
+              <input type='submit' value="Sign Up" />
+          <div>
+            Already registered?, 
+            <NavLink to="/signin">
+              Sign In
+            </NavLink> 
+          </div>
+        </Form>
+        </div>
       <Footer />
-    </div>
+    </body>
   );
 };
 
