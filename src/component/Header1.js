@@ -5,7 +5,7 @@ import User from "../assets/user.png"
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import PropTypes from 'prop-types';
 
-const Header1 = ({ direction }) => {
+const Header1 = ({ direction, currentUser, logout }) => {
     const [dropdownOpen, setDropdownOpen] = useState(false);
     
     const toggle = () => setDropdownOpen((prevState) => !prevState);
@@ -13,6 +13,11 @@ const Header1 = ({ direction }) => {
     Header1.propTypes = {
         direction: PropTypes.string,
     };
+
+    const handleClick = () => {
+        logout()
+    }
+
     return(
         <>
             <Navbar id="bar" dark >
@@ -31,6 +36,16 @@ const Header1 = ({ direction }) => {
                     <Dropdown isOpen={dropdownOpen} toggle={toggle} direction={direction}>
                         <DropdownToggle className="bg-transparent"><img src={User} alt="Account Icon" className="user"/></DropdownToggle>
                             <DropdownMenu>
+                            {currentUser ? (
+                                <DropdownItem header>
+                                    Greetings, {currentUser.username}!
+                                </DropdownItem>
+                            ) : (
+                                <DropdownItem header>
+                                    Greetings, Guest!
+                                </DropdownItem>
+                            )    
+                            }
                                 <DropdownItem header>
                                     Account
                                 </DropdownItem>
@@ -41,7 +56,7 @@ const Header1 = ({ direction }) => {
                                 </DropdownItem>
                                 <DropdownItem divider/>
                                 <DropdownItem>
-                                    <NavLink to="/usermovies" className="dropdown-link">
+                                    <NavLink className="dropdown-link" onClick={handleClick} to="/">
                                         Log Out
                                     </NavLink>
                                 </DropdownItem>

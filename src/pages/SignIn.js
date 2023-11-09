@@ -13,7 +13,7 @@ const Login = ({login}) => {
     const data = Object.fromEntries(formData)
     console.log("Data", data)
     const userInfo = {
-      "user": { email: data.email, username: data.username, password: data.password }
+      "user": { email: data.email, password: data.password }
     }
     
     console.log("userInfo", userInfo)
@@ -28,9 +28,6 @@ const Login = ({login}) => {
             Email: 
             <input type="email" name='email' placeholder="email" />
             <br/>
-            Username: 
-            <input type="string" name='username' placeholder="username" />
-            <br />
             Password: 
             <input type="password" name='password' placeholder="password" />
             <br/>

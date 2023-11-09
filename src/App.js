@@ -42,7 +42,7 @@ const App = () => {
       setCurrentUser(payload)
     })
     .catch(error => console.log("login errors: ", error))
-}
+  }
 
   useEffect(() => {
     const loggedIn = localStorage.getItem("currentUser")
@@ -51,34 +51,50 @@ const App = () => {
     }
   }, [])
 
-const login = (userInfo) => {
-  fetch(`http://localhost:3000/login`, {
-    body: JSON.stringify(userInfo),
-    headers: {
-      "Content-Type": "application/json",
-      "Accept": "application/json"
-    },
-    method: "POST"
-  })
-  .then(response => {
-    if (!response.ok) {
-      throw Error(response.statusText)
-    }
-    localStorage.setItem("token", response.headers.get("Authorization"))
-    return response.json()
-  })
-  .then(payload => {
-    localStorage.setItem("currentUser", JSON.stringify(payload))
-    setCurrentUser(payload)
-    console.log("Login successful");
-    navigate('/movieindex');
-    console.log("Payload", payload)
-  })
-  .catch(error => {
-    console.log("Login error: ", error);
-    alert("Login Failed")
-  });
-}
+  const login = (userInfo) => {
+    fetch(`http://localhost:3000/login`, {
+      body: JSON.stringify(userInfo),
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      method: "POST"
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw Error(response.statusText)
+      }
+      localStorage.setItem("token", response.headers.get("Authorization"))
+      return response.json()
+    })
+    .then(payload => {
+      localStorage.setItem("currentUser", JSON.stringify(payload))
+      setCurrentUser(payload)
+      console.log("Login successful");
+      navigate('/movieindex');
+      console.log("Payload", payload)
+    })
+    .catch(error => {
+      console.log("Login error: ", error);
+      alert("Login Failed")
+    });
+  }
+
+  const logout = () => {
+    fetch(`http://localhost:3000/logout`, {
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": localStorage.getItem("token")
+      },
+      method: "DELETE"
+    })
+    .then(payload => {
+      localStorage.removeItem("token") 
+      localStorage.removeItem("currentUser")  
+      setCurrentUser(null)
+    })
+    .catch(error => console.log("log out errors: ", error))
+  }
 
   const createMovie = (movie) => {
     console.log(movie)
@@ -89,14 +105,16 @@ const login = (userInfo) => {
       <Routes>
         <Route path="/" element={<SignInSignUp signup={signup} />} />
         <Route path="/home" element={<Home />} />
-        <Route path="/movieindex" element={<><Header2 /> <MovieIndex /></>} />
-        <Route path="/movienew" element={<><Header3 /><MovieNew createMovie={createMovie} /></>} />
-        <Route path="/movieshow" element={<><Header1 /><MovieShow /></>} />
+        <Route path="/movieindex" element={<><Header2 currentUser={currentUser} logout={logout}/> <MovieIndex /></>} />
+        { currentUser &&
+          <Route path="/movienew" element={<><Header3 currentUser={currentUser} logout={logout}/><MovieNew createMovie={createMovie} /></>} />
+        }
+        <Route path="/movieshow" element={<><Header1 currentUser={currentUser} logout={logout}/><MovieShow /></>} />
         <Route path="/movieedit" element={<MovieEdit />} />
-        <Route path="/aboutus" element={<><Header1 /><AboutUs /></>} />
+        <Route path="/aboutus" element={<><Header1 currentUser={currentUser} logout={logout}/><AboutUs /></>} />
         <Route path="/signup" element={<SignUp signup={signup} />} />
         <Route path="/login" element={<Login login={login}/>} />
-        <Route path="*" element={<><Header1 /><NotFound /> </>} />
+        <Route path="*" element={<><Header1 currentUser={currentUser} logout={logout}/><NotFound /> </>} />
       </Routes>
     </>
   );

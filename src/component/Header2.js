@@ -5,14 +5,20 @@ import User from "../assets/user.png"
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import PropTypes from 'prop-types';
 
-const Header2 = ({ direction, currentUser }) => {
+const Header2 = ({ direction, currentUser, logout }) => {
     const [dropdownOpen, setDropdownOpen] = useState(false);
+    console.log("current", currentUser)
 
     const toggle = () => setDropdownOpen((prevState) => !prevState);
     
     Header2.propTypes = {
         direction: PropTypes.string,
     };
+
+    const handleClick = () => {
+        logout()
+    }
+
     return(
         <>
             <Navbar id="bar" dark >
@@ -48,7 +54,7 @@ const Header2 = ({ direction, currentUser }) => {
                                 </DropdownItem>
                                 <DropdownItem divider/>
                                 <DropdownItem>
-                                    <NavLink to="/usermovies" className="dropdown-link">
+                                    <NavLink className="dropdown-link"  onClick={handleClick} to="/">
                                         Log Out
                                     </NavLink>
                                 </DropdownItem>
