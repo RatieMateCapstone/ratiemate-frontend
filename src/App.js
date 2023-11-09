@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import Home from "./pages/Home";
 import MovieIndex from "./pages/MovieIndex";
@@ -16,8 +16,10 @@ import Header3 from "./component/Header3.js"
 
 
 const App = () => {
-  const [currentUser, setCurrentUser] = useState(null);
+  const [currentUser, setCurrentUser] = useState("null");
   const navigate = useNavigate();
+
+  console.log("user", currentUser)
 
   const signup = (userInfo) => {
     fetch(`http://localhost:3000/signup`, {
@@ -36,10 +38,18 @@ const App = () => {
       return response.json()
     })
     .then(payload => {
+      localStorage.setItem("currentUser", JSON.stringify(payload))
       setCurrentUser(payload)
     })
     .catch(error => console.log("login errors: ", error))
 }
+
+  useEffect(() => {
+    const loggedIn = localStorage.getItem("currentUser")
+    if(loggedIn) {
+      setCurrentUser(JSON.parse(loggedIn))
+    }
+  }, [])
 
 const login = (userInfo) => {
   fetch(`http://localhost:3000/login`, {
@@ -58,9 +68,11 @@ const login = (userInfo) => {
     return response.json()
   })
   .then(payload => {
+    localStorage.setItem("currentUser", JSON.stringify(payload))
     setCurrentUser(payload)
     console.log("Login successful");
     navigate('/movieindex');
+    console.log("Payload", payload)
   })
   .catch(error => {
     console.log("Login error: ", error);
@@ -77,7 +89,7 @@ const login = (userInfo) => {
       <Routes>
         <Route path="/" element={<SignInSignUp signup={signup} />} />
         <Route path="/home" element={<Home />} />
-        <Route path="/movieindex" element={<><Header2 setCurrentUser={setCurrentUser}/> <MovieIndex /></>} />
+        <Route path="/movieindex" element={<><Header2 /> <MovieIndex /></>} />
         <Route path="/movienew" element={<><Header3 /><MovieNew createMovie={createMovie} /></>} />
         <Route path="/movieshow" element={<><Header1 /><MovieShow /></>} />
         <Route path="/movieedit" element={<MovieEdit />} />

@@ -11,18 +11,13 @@ const Login = ({login}) => {
     e.preventDefault()
     const formData = new FormData(formRef.current)
     const data = Object.fromEntries(formData)
+    console.log("Data", data)
     const userInfo = {
       "user": { email: data.email, username: data.username, password: data.password }
     }
     
+    console.log("userInfo", userInfo)
     login(userInfo)
-
-    // if(userInfo === "successful"){
-    //   navigate('/movieindex')
-    //   e.target.reset()
-    // }else{
-    //   alert("Login Failed")
-    // }
   }
 
   return(
@@ -34,7 +29,7 @@ const Login = ({login}) => {
             <input type="email" name='email' placeholder="email" />
             <br/>
             Username: 
-            <input type="username" name='username' placeholder="username" />
+            <input type="string" name='username' placeholder="username" />
             <br />
             Password: 
             <input type="password" name='password' placeholder="password" />

@@ -3,7 +3,6 @@ import { Card, CardBody, CardTitle, CardSubtitle, Button } from "reactstrap"
 import { Rating} from "@mui/material";
 import "../App.css"
 import { NavLink } from "react-router-dom";
-import Header2 from "../component/Header2"
 import Footer from "../component/Footer"
 import Sign from "../assets/cinemaSign.gif"
 
