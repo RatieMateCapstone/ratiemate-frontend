@@ -17,9 +17,16 @@ import Header3 from "./component/Header3.js"
 
 const App = () => {
   const [currentUser, setCurrentUser] = useState("null");
+  const [movies, setMovies] = useState([])
   const navigate = useNavigate();
 
   console.log("user", currentUser)
+  const readMovies = () => {
+    fetch(`http://localhost:3000/movies`)
+      .then(response => response.json())
+      .then(payload => setMovies(payload))
+      .catch(error => console.log(error))
+  }
 
   const signup = (userInfo) => {
     fetch(`http://localhost:3000/signup`, {
@@ -40,6 +47,7 @@ const App = () => {
     .then(payload => {
       localStorage.setItem("currentUser", JSON.stringify(payload))
       setCurrentUser(payload)
+      console.log("setCurrentUser", setCurrentUser)
     })
     .catch(error => console.log("login errors: ", error))
   }
@@ -49,6 +57,7 @@ const App = () => {
     if(loggedIn) {
       setCurrentUser(JSON.parse(loggedIn))
     }
+    readMovies()
   }, [])
 
   const login = (userInfo) => {
@@ -105,7 +114,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<SignInSignUp signup={signup} />} />
         <Route path="/home" element={<Home />} />
-        <Route path="/movieindex" element={<><Header2 currentUser={currentUser} logout={logout}/> <MovieIndex /></>} />
+        <Route path="/movieindex" element={<><Header2 currentUser={currentUser} logout={logout}/> <MovieIndex movies={movies} /></>} />
         { currentUser &&
           <Route path="/movienew" element={<><Header3 currentUser={currentUser} logout={logout}/><MovieNew createMovie={createMovie} /></>} />
         }
