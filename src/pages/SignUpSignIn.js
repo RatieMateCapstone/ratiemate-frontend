@@ -29,7 +29,7 @@ const SignInSignUp = () => {
                     </div>
                     <div className="ticket">
                         <img src={Ticket1} alt="Movie Ticket" className="ticket"/>
-                        <Link to="/signin" id="button">
+                        <Link to="/login" id="button">
                             <button>
                                 Sign In
                             </button>

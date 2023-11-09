@@ -23,6 +23,7 @@ const SignUp = ({ signup }) => {
     const userInfo = {
       user: {
         email: data.email,
+        username: data.username,
         password: data.password,
         password_confirmation: data.confirmpassword
       }
@@ -30,7 +31,7 @@ const SignUp = ({ signup }) => {
 
     try {
       await signup(userInfo);
-      navigate('/signin');
+      navigate('/login');
       formRef.current.reset();
     } catch (error) {
       console.error('Signup failed:', error);

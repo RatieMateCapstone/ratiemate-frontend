@@ -3,7 +3,7 @@ import { useNavigate, NavLink } from 'react-router-dom'
 import Footer from "../component/Footer"
 
 
-const SignIn = ({login}) => {
+const Login = ({login}) => {
   const formRef = useRef()
   const navigate = useNavigate()
   
@@ -11,12 +11,13 @@ const SignIn = ({login}) => {
     e.preventDefault()
     const formData = new FormData(formRef.current)
     const data = Object.fromEntries(formData)
+    console.log("Data", data)
     const userInfo = {
       "user": { email: data.email, password: data.password }
     }
+    
+    console.log("userInfo", userInfo)
     login(userInfo)
-    navigate('/movieindex')
-    e.target.reset()
   }
 
   return(
@@ -44,4 +45,4 @@ const SignIn = ({login}) => {
   )
 }
 
-export default SignIn
+export default Login

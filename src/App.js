@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import Home from "./pages/Home";
 import MovieIndex from "./pages/MovieIndex";
@@ -8,77 +8,93 @@ import NotFound from "./pages/NotFound";
 import AboutUs from "./pages/AboutUs";
 import SignInSignUp from "./pages/SignUpSignIn";
 import SignUp from "./pages/SignUp"; 
-import SignIn from "./pages/SignIn";
+import Login from "./pages/SignIn";
 import MovieNew from "./pages/MovieNew.js";
-import UserMovies from "./pages/UserMovies.js";
+import Header1 from "./component/Header1.js"
+import Header2 from "./component/Header2.js"
+import Header3 from "./component/Header3.js"
+
 
 const App = () => {
-  const [currentUser, setCurrentUser] = useState(null);
+  const [currentUser, setCurrentUser] = useState("null");
   const navigate = useNavigate();
 
-  const url = 'http://localhost:3000';
+  console.log("user", currentUser)
 
   const signup = (userInfo) => {
-    return new Promise((resolve, reject) => {
-      fetch(`${url}/signup`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-        },
-        body: JSON.stringify(userInfo),
-      })
-        .then((response) => {
-          if (!response.ok) {
-            console.error('Signup failed - response:', response);
-            reject('Signup failed');
-            return;
-          }
-          localStorage.setItem('token', response.headers.get('Authorization'));
-          return response.json();
-        })
-        .then((user) => {
-          setCurrentUser(user);
-          console.log('Signup successful:', user);
-          resolve(user);
-        })
-        .catch((error) => {
-          console.error('Signup error:', error);
-          reject(error);
-        });
-    });
-  };
-  const login = (userInfo) => {
-    return new Promise((resolve, reject) => {
-     fetch(`${url}/login`, {
-      method: 'POST',
-      headers: {
-       'Content-Type': 'application/json',
-       'Accept': 'application/json',
-      },
+    fetch(`http://localhost:3000/signup`, {
       body: JSON.stringify(userInfo),
-     })
-      .then((response) => {
-       if (!response.ok) {
-        console.error('Login failed - response:', response);
-        reject('Login failed');
-        return;
-       }
-       localStorage.setItem('token', response.headers.get('Authorization'));
-       return response.json();
-      })
-      .then((user) => {
-       setCurrentUser(user);
-       console.log('Login successful:', user);
-       resolve(user);
-      })
-      .catch((error) => {
-       console.error('Login error:', error);
-       reject(error);
-      });
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      },
+      method: 'POST',
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw Error(response.statusText)
+      }
+      localStorage.setItem("token", response.headers.get("Authorization"))
+      return response.json()
+    })
+    .then(payload => {
+      localStorage.setItem("currentUser", JSON.stringify(payload))
+      setCurrentUser(payload)
+    })
+    .catch(error => console.log("login errors: ", error))
+  }
+
+  useEffect(() => {
+    const loggedIn = localStorage.getItem("currentUser")
+    if(loggedIn) {
+      setCurrentUser(JSON.parse(loggedIn))
+    }
+  }, [])
+
+  const login = (userInfo) => {
+    fetch(`http://localhost:3000/login`, {
+      body: JSON.stringify(userInfo),
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      method: "POST"
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw Error(response.statusText)
+      }
+      localStorage.setItem("token", response.headers.get("Authorization"))
+      return response.json()
+    })
+    .then(payload => {
+      localStorage.setItem("currentUser", JSON.stringify(payload))
+      setCurrentUser(payload)
+      console.log("Login successful");
+      navigate('/movieindex');
+      console.log("Payload", payload)
+    })
+    .catch(error => {
+      console.log("Login error: ", error);
+      alert("Login Failed")
     });
-   };
-  
+  }
+
+  const logout = () => {
+    fetch(`http://localhost:3000/logout`, {
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": localStorage.getItem("token")
+      },
+      method: "DELETE"
+    })
+    .then(payload => {
+      localStorage.removeItem("token") 
+      localStorage.removeItem("currentUser")  
+      setCurrentUser(null)
+    })
+    .catch(error => console.log("log out errors: ", error))
+  }
 
   const createMovie = (movie) => {
     console.log(movie)
@@ -89,15 +105,16 @@ const App = () => {
       <Routes>
         <Route path="/" element={<SignInSignUp signup={signup} />} />
         <Route path="/home" element={<Home />} />
-        <Route path="/movieindex" element={<MovieIndex />} />
-        <Route path="/movienew" element={<MovieNew createMovie={createMovie} />} />
-        <Route path="/usermovies" element={<UserMovies />} />
-        <Route path="/movieshow" element={<MovieShow />} />
+        <Route path="/movieindex" element={<><Header2 currentUser={currentUser} logout={logout}/> <MovieIndex /></>} />
+        { currentUser &&
+          <Route path="/movienew" element={<><Header3 currentUser={currentUser} logout={logout}/><MovieNew createMovie={createMovie} /></>} />
+        }
+        <Route path="/movieshow" element={<><Header1 currentUser={currentUser} logout={logout}/><MovieShow /></>} />
         <Route path="/movieedit" element={<MovieEdit />} />
-        <Route path="/aboutus" element={<AboutUs />} />
+        <Route path="/aboutus" element={<><Header1 currentUser={currentUser} logout={logout}/><AboutUs /></>} />
         <Route path="/signup" element={<SignUp signup={signup} />} />
-        <Route path="/signin" element={<SignIn login={login}/>} />
-        <Route path="*" element={<NotFound />} />
+        <Route path="/login" element={<Login login={login}/>} />
+        <Route path="*" element={<><Header1 currentUser={currentUser} logout={logout}/><NotFound /> </>} />
       </Routes>
     </>
   );
