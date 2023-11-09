@@ -24,14 +24,11 @@ const MovieIndex = ({ movies, currentUser }) => {
                                     {movie.title}
                                 </CardTitle>
                                 <CardSubtitle className="mb-2 text-muted" tag="h6" id="body">
-                                    Created By: {currentUser.username}
-                                </CardSubtitle>
-                                <CardSubtitle className="mb-2 text-muted" tag="h6" id="body">
                                     Genre: {movie.genre}
                                 </CardSubtitle>
                                 <CardSubtitle className="mb-2 text-muted" tag="h6" id="rating">
                                     <div>
-                                        {currentUser.username}'s rating: 
+                                        Rating: 
                                         <br/>
                                         <Rating name="read-only" value={`${movie.rating}`} readOnly/>
                                     </div>
