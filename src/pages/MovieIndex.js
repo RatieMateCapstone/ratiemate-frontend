@@ -10,7 +10,6 @@ import Sign from "../assets/cinemaSign.gif"
 const MovieIndex = ({ movies, currentUser }) => {
     return(
         <body id="movieIndex">
-            <Header2 />
             <div className="signpages-container">
                 <img src={Sign} alt="Movie Theater Sign" className="pagesigns"/>
                 <h2 className="signtext">Movies</h2>

@@ -14,7 +14,6 @@ import Sign from "../assets/cinemaSign.gif"
 const AboutUs = () => {
     return(
         <body id="aboutUs">
-            <Header1 />
             <div className="signpages-container">
                 <img src={Sign} alt="Movie Theater Sign" className="pagesigns"/>
                 <h2 className="signtext">About Us</h2>

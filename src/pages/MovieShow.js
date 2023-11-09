@@ -25,7 +25,6 @@ const MovieShow = ({ movies, currentUser }) => {
   
   return(
     <body id="movieShow">
-      <Header1 />
       {currentMovie ? (
         <>
           <div className="show-container">

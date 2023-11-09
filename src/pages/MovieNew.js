@@ -29,7 +29,6 @@ const MovieNew = ({ createMovie }) => {
 
     return(
         <body id="movieNew">
-            <Header3 />
             <div id="new-container">
                 <form id="formNew">
                     <h1>Add a Movie</h1>

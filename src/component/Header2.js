@@ -5,7 +5,7 @@ import User from "../assets/user.png"
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import PropTypes from 'prop-types';
 
-const Header2 = ({ direction }) => {
+const Header2 = ({ direction, setCurrentUser }) => {
     const [dropdownOpen, setDropdownOpen] = useState(false);
 
     const toggle = () => setDropdownOpen((prevState) => !prevState);
@@ -28,6 +28,9 @@ const Header2 = ({ direction }) => {
                     <Dropdown isOpen={dropdownOpen} toggle={toggle} direction={direction}>
                         <DropdownToggle className="bg-transparent"><img src={User} alt="Account Icon" className="user"/></DropdownToggle>
                             <DropdownMenu>
+                                <DropdownItem header>
+                                    Greetings, {setCurrentUser.username}!
+                                </DropdownItem>
                                 <DropdownItem header>
                                     Account
                                 </DropdownItem>
