@@ -9,23 +9,26 @@ import { TbBrandDisney } from "react-icons/tb";
 import { PiTelevisionSimpleBold } from "react-icons/pi"
 import { Link } from "react-router-dom";
 
-const MovieShow = ({ movies, currentUser }) => {
+const MovieShow = ({ movies }) => {
   const { id } = useParams()
   let currentMovie = movies?.find((movie) => movie.id === +id)
 
+  const platform = currentMovie?.platform || "defaultPlatform";
+
   const iconMap = {
-      "Youtube": SiYoutube,
-      "Netflix": SiNetflix,
-      "Hulu": SiHulu,
-      "Hbo": SiHbo,
-      "Disney+": TbBrandDisney
+    "Youtube": SiYoutube,
+    "Netflix": SiNetflix,
+    "Hulu": SiHulu,
+    "Hbo": SiHbo,
+    "Disney+": TbBrandDisney,
+    "defaultPlatform": PiTelevisionSimpleBold 
   };
 
-  const IconComponent = iconMap[currentMovie.platform] || PiTelevisionSimpleBold
+  const IconComponent = iconMap[platform];
   
   return(
     <body id="movieShow">
-      {currentMovie ? (
+      {currentMovie && (
         <>
           <div className="show-container">
             <h1 className="movie-title">{currentMovie.title}</h1>
@@ -37,7 +40,6 @@ const MovieShow = ({ movies, currentUser }) => {
                   <IconComponent id="icon"/>
                 </Link>
               </div>
-              <h3 className="show-user">Added by: {currentUser.username}</h3>
             </div>       
             <div>
               <img src={`${currentMovie.image}`} alt={`visual for: ${currentMovie.title} the movie`} id="show-image"/>
@@ -50,8 +52,7 @@ const MovieShow = ({ movies, currentUser }) => {
             </div>
           </div>
         </>
-      ) : (
-        <NotFound />
+
       )}
       <Footer/>
     </body>

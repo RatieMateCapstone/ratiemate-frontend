@@ -1,13 +1,10 @@
 import React, { useState } from "react";
-import Header3 from "../component/Header3"
 import Footer from "../component/Footer"
 import { FormGroup, Label, Input } from 'reactstrap';
-import { Link } from 'react-router-dom'
 import { useNavigate } from "react-router-dom";
 
 
-const MovieNew = ({ createMovie }) => {
-    const navigate = useNavigate()
+const MovieNew = ({ createMovie, currentUser }) => {
     const [newMovie, setNewMovie] = useState({
         title: "",
         genre: "",
@@ -15,12 +12,16 @@ const MovieNew = ({ createMovie }) => {
         trailer: "",
         rating: "",
         description: "",
-        platform: ""
+        platform: "",
+        user_id: currentUser?.id
     })
+    console.log("newPageCurrentUser", currentUser)
+    const navigate = useNavigate()
     
     const handleChange = (e) => {
         setNewMovie({...newMovie, [e.target.name]: e.target.value})
     }    
+    console.log("newMovie", newMovie)
 
     const handleSubmit = () => {
         createMovie(newMovie)
@@ -42,6 +43,7 @@ const MovieNew = ({ createMovie }) => {
                             type="string"
                             onChange={handleChange}
                             value={newMovie.title}
+                            placeholder="Title"
                             />
                     </FormGroup>
                         {' '}
@@ -55,6 +57,7 @@ const MovieNew = ({ createMovie }) => {
                             type="string"
                             onChange={handleChange}
                             value={newMovie.genre}
+                            placeholder="Genre"
                             />
                     </FormGroup>
                         {' '}
@@ -68,12 +71,13 @@ const MovieNew = ({ createMovie }) => {
                             type="text"
                             onChange={handleChange}
                             value={newMovie.image}
+                            placeholder="Image Link"
                             />
                     </FormGroup>
                         {' '}
                     <FormGroup>
                         <Label for="trailer">
-                            Trailer Link:
+                            Trailer:
                         </Label>
                         <Input
                             id="trailer"
@@ -81,6 +85,7 @@ const MovieNew = ({ createMovie }) => {
                             type="text"
                             onChange={handleChange}
                             value={newMovie.trailer}
+                            placeholder="Trailer Link"
                             />
                     </FormGroup>
                         {' '}
@@ -89,11 +94,11 @@ const MovieNew = ({ createMovie }) => {
                             Rating:
                         </Label>
                         <Input
-                            id="rating"
                             name="rating"
                             type="integer"
                             onChange={handleChange}
                             value={newMovie.rating}
+                            placeholder="Number Rating (1-5)"
                             />
                     </FormGroup>
                         {' '}
@@ -107,6 +112,7 @@ const MovieNew = ({ createMovie }) => {
                             type="text"
                             onChange={handleChange}
                             value={newMovie.description}
+                            placeholder="Description"
                             />
                     </FormGroup>
                         {' '}
@@ -120,17 +126,13 @@ const MovieNew = ({ createMovie }) => {
                             type="string"
                             onChange={handleChange}
                             value={newMovie.platform}
+                            placeholder="(Ex: 'Youtube', 'Netflix', etc)"
                             />
                     </FormGroup>
-                    <input type='submit' value="Submit" onClick={handleSubmit}/>
+                    <button onClick={handleSubmit} name = "submit">
+                        Submit
+                    </button>
                 </form>
-                <div id="movieNewButton">
-                    <Link to="/movieindex">
-                        <button id="gobackbutton">
-                            Go Back 
-                        </button>
-                    </Link>
-                </div>
             </div>
             <Footer/>
         </body>
