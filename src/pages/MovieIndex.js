@@ -6,7 +6,7 @@ import { NavLink } from "react-router-dom";
 import Footer from "../component/Footer"
 import Sign from "../assets/cinemaSign.gif"
 
-const MovieIndex = ({ movies, currentUser }) => {
+const MovieIndex = ({ movies }) => {
     return(
         <body id="movieIndex">
             <div className="signpages-container">

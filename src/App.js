@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import Home from "./pages/Home";
 import MovieIndex from "./pages/MovieIndex";
-import MovieShow from "./pages/MovieShow";
+import MovieShow from "./pages/MovieShow.js"
 import MovieEdit from "./pages/MovieEdit";
 import NotFound from "./pages/NotFound";
 import AboutUs from "./pages/AboutUs";
@@ -18,9 +18,13 @@ import Header3 from "./component/Header3.js"
 const App = () => {
   const [currentUser, setCurrentUser] = useState("null");
   const [movies, setMovies] = useState([])
+
   const navigate = useNavigate();
 
   console.log("user", currentUser)
+  console.log("movies", movies)
+  console.log("movies", setMovies)
+
   const readMovies = () => {
     fetch(`http://localhost:3000/movies`)
       .then(response => response.json())
@@ -105,8 +109,18 @@ const App = () => {
     .catch(error => console.log("log out errors: ", error))
   }
 
-  const createMovie = (movie) => {
-    console.log(movie)
+  const createMovie = (newMovie) => {
+    console.log(newMovie)
+    fetch(`http://localhost:3000/movies`,{
+      body: JSON.stringify(newMovie),
+      headers: {
+        "Content-Type": "application/json"
+      },
+      method: "POST"
+    })
+    .then((response) => response.json())
+    .then(() => readMovies())
+    .catch((errors) => console.log("New Movie create error:", errors))
   }
 
   return (
@@ -116,9 +130,9 @@ const App = () => {
         <Route path="/home" element={<Home />} />
         <Route path="/movieindex" element={<><Header2 currentUser={currentUser} logout={logout}/> <MovieIndex movies={movies} /></>} />
         { currentUser &&
-          <Route path="/movienew" element={<><Header3 currentUser={currentUser} logout={logout}/><MovieNew createMovie={createMovie} /></>} />
+          <Route path="/movienew" element={<><Header3 currentUser={currentUser} logout={logout}/><MovieNew createMovie={createMovie} currentUser={currentUser}/></>} />
         }
-        <Route path="/movieshow" element={<><Header1 currentUser={currentUser} logout={logout}/><MovieShow /></>} />
+        <Route path="/movieshow/:id" element={<><Header1 currentUser={currentUser} logout={logout}/><MovieShow movies={movies} /></>} />
         <Route path="/movieedit" element={<MovieEdit />} />
         <Route path="/aboutus" element={<><Header1 currentUser={currentUser} logout={logout}/><AboutUs /></>} />
         <Route path="/signup" element={<SignUp signup={signup} />} />
