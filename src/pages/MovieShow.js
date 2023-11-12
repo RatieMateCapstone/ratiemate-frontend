@@ -1,8 +1,6 @@
 import React from "react";
-import Header1 from "../component/Header1"
 import Footer from "../component/Footer"
 import { useParams } from "react-router-dom";
-import NotFound from "../pages/NotFound"
 import { Rating } from "@mui/material";
 import { SiYoutube, SiNetflix, SiHulu, SiHbo } from "react-icons/si";
 import { TbBrandDisney } from "react-icons/tb";
@@ -21,29 +19,31 @@ const MovieShow = ({ movies }) => {
     "Hulu": SiHulu,
     "Hbo": SiHbo,
     "Disney+": TbBrandDisney,
-    "defaultPlatform": PiTelevisionSimpleBold 
   };
 
-  const IconComponent = iconMap[platform];
+  const IconComponent = iconMap[platform] || PiTelevisionSimpleBold
   
   return(
     <body id="movieShow">
+      <div>
       {currentMovie && (
-        <>
-          <div className="show-container">
+        <div className="show-container">
             <h1 className="movie-title">{currentMovie.title}</h1>
             <div className="movie-attributes">
               <Rating name="read-only" id="show-rating" value={`${currentMovie.rating}`} readOnly />
               <div className="watch">
-                <h6 className="watch">Watch Trailer:</h6>
-                <Link to={`${currentMovie.trailer}`} target="_blank">
-                  <IconComponent id="icon"/>
-                </Link>
+                <h6 className="watch">Platform:</h6>
+                <IconComponent id="icon"/>
               </div>
             </div>       
-            <div>
-              <img src={`${currentMovie.image}`} alt={`visual for: ${currentMovie.title} the movie`} id="show-image"/>
-            </div>
+            <Link to={`${currentMovie.trailer}`} target="_blank">
+              <div className="example">
+                  <img src={`${currentMovie.image}`} alt={`visual for: ${currentMovie.title} the movie`} id="show-image"/>
+                  <div className="content">
+                    <div className="text">Click here to watch trailer!</div>
+                  </div>
+              </div>
+             </Link>
             <div>
               <div>
                 <h6 className="movie-genre">Genre: {currentMovie.genre}</h6>
@@ -51,10 +51,9 @@ const MovieShow = ({ movies }) => {
               <p className="show-description">{currentMovie.description}</p>
             </div>
           </div>
-        </>
-
       )}
       <Footer/>
+      </div>
     </body>
   )
 }

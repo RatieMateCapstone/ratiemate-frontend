@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import Home from "./pages/Home";
 import MovieIndex from "./pages/MovieIndex";
-import MovieShow from "./pages/MovieShow";
+import MovieShow from "./pages/MovieShow.js"
 import MovieEdit from "./pages/MovieEdit";
 import NotFound from "./pages/NotFound";
 import AboutUs from "./pages/AboutUs";
@@ -132,7 +132,7 @@ const App = () => {
         { currentUser &&
           <Route path="/movienew" element={<><Header3 currentUser={currentUser} logout={logout}/><MovieNew createMovie={createMovie} currentUser={currentUser}/></>} />
         }
-        <Route path="/movieshow/:id" element={<><Header1 currentUser={currentUser} logout={logout}/><MovieShow movies={movies}/></>} />
+        <Route path="/movieshow/:id" element={<><Header1 currentUser={currentUser} logout={logout}/><MovieShow movies={movies} /></>} />
         <Route path="/movieedit" element={<MovieEdit />} />
         <Route path="/aboutus" element={<><Header1 currentUser={currentUser} logout={logout}/><AboutUs /></>} />
         <Route path="/signup" element={<SignUp signup={signup} />} />
