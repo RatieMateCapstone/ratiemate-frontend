@@ -5,13 +5,12 @@ import User from "../assets/user.png"
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import PropTypes from 'prop-types';
 
-const Header2 = ({ direction, currentUser, logout }) => {
+const Header4 = ({ direction, currentUser, logout }) => {
     const [dropdownOpen, setDropdownOpen] = useState(false);
-    console.log("current", currentUser)
-
+    
     const toggle = () => setDropdownOpen((prevState) => !prevState);
     
-    Header2.propTypes = {
+    Header4.propTypes = {
         direction: PropTypes.string,
     };
 
@@ -28,11 +27,11 @@ const Header2 = ({ direction, currentUser, logout }) => {
                 </NavbarBrand>
                 </div>
                 <div className="links-header1">
+                    <NavLink to="/movieindex" id="link">
+                        All Movies
+                    </NavLink>
                     <NavLink to="/movienew" id="link">
                         Add Movie
-                    </NavLink>
-                    <NavLink to="/home" id="link">
-                        Generate Movie
                     </NavLink>
                     <Dropdown isOpen={dropdownOpen} toggle={toggle} direction={direction}>
                         <DropdownToggle className="bg-transparent"><img src={User} alt="Account Icon" className="user"/></DropdownToggle>
@@ -57,7 +56,7 @@ const Header2 = ({ direction, currentUser, logout }) => {
                                 </DropdownItem>
                                 <DropdownItem divider/>
                                 <DropdownItem>
-                                    <NavLink className="dropdown-link"  onClick={handleClick} to="/">
+                                    <NavLink className="dropdown-link" onClick={handleClick} to="/">
                                         Log Out
                                     </NavLink>
                                 </DropdownItem>
@@ -69,5 +68,6 @@ const Header2 = ({ direction, currentUser, logout }) => {
     )
 }
 
+  
 
-export default Header2
+export default Header4

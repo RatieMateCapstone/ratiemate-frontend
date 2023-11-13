@@ -54,7 +54,6 @@ const MovieShow = () => {
 
   return (
     <>
-      
       <div id="movieShow">
         <div className="show-container">
           <h1 className="movie-title">{movie.title}</h1>
