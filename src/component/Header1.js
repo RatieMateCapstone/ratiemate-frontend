@@ -53,7 +53,7 @@ const Header1 = ({ direction, currentUser, logout }) => {
                                     Account
                                 </DropdownItem>
                                 <DropdownItem>
-                                    <NavLink to="/usermovies" className="dropdown-link">
+                                    <NavLink to="/moviesprotectedindex" className="dropdown-link">
                                         My Movies
                                     </NavLink>
                                 </DropdownItem>

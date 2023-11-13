@@ -25,7 +25,7 @@ const MovieNew = ({ createMovie, currentUser }) => {
 
     const handleSubmit = () => {
         createMovie(newMovie)
-        navigate("/movieindex")
+        navigate("/moviesprotectedindex")
     }
 
     return(

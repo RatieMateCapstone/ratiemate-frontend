@@ -15,10 +15,11 @@ import Header2 from "./component/Header2.js"
 import Header3 from "./component/Header3.js"
 import MovieShow2 from "./pages/MovieShow2.js"
 import Header4 from "./component/Header4.js"
+import MoviesProtectedIndex from "./pages/MoviesProtectedIndex.js";
 
 
 const App = () => {
-  const [currentUser, setCurrentUser] = useState("null");
+  const [currentUser, setCurrentUser] = useState(null);
   const [movies, setMovies] = useState([])
 
   const navigate = useNavigate();
@@ -131,11 +132,14 @@ const App = () => {
         <Route path="/" element={<><SignInSignUp signup={signup} /></>} />
         <Route path="/home" element={<><Header4  currentUser={currentUser} logout={logout}/><Home /></>} />
         <Route path="/movieindex" element={<><Header2 currentUser={currentUser} logout={logout}/> <MovieIndex movies={movies} /></>} />
+        { currentUser && 
+        <Route path="/moviesprotectedindex" element={<><Header2 currentUser={currentUser} logout={logout}/> <MoviesProtectedIndex currentUser={currentUser} movies={movies} /></>} />
+        }
         { currentUser &&
           <Route path="/movienew" element={<><Header3 currentUser={currentUser} logout={logout}/><MovieNew createMovie={createMovie} currentUser={currentUser}/></>} />
         }
         <Route path="/movieshow/:id" element={<><Header1 currentUser={currentUser} logout={logout}/><MovieShow movies={movies} /></>} />
-        <Route path="/movieshow2/:id" element={<><Header1 currentUser={currentUser} logout={logout}/><MovieShow2 movies={movies} /></>} />
+        <Route path="/movieshow2/:id" element={<><Header1 currentUser={currentUser} logout={logout}/><MovieShow2 currentUser={currentUser} movies={movies} /></>} />
         <Route path="/movieedit" element={<MovieEdit />} />
         <Route path="/aboutus" element={<><Header1 currentUser={currentUser} logout={logout}/><AboutUs /></>} />
         <Route path="/signup" element={<SignUp signup={signup} />} />
