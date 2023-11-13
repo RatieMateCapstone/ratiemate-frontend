@@ -58,7 +58,8 @@ const MovieShow = () => {
         <div className="show-container">
           <h1 className="movie-title">{movie.title}</h1>
           {movie.poster_path && (
-            <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={`Cover for: ${movie.title}`} className="movie-image" />
+            <img 
+            />
           )}
           <div className="movie-details">
             <Rating name="read-only" value={movie.vote_average / 2} readOnly />
