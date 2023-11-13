@@ -22,7 +22,7 @@ const Header1 = ({ direction, currentUser, logout }) => {
         <>
             <Navbar id="bar" dark >
                 <div>
-                <NavbarBrand href="/home" id="web-title">
+                <NavbarBrand id="web-title">
                     Ratie Mate
                 </NavbarBrand>
                 </div>
@@ -32,6 +32,9 @@ const Header1 = ({ direction, currentUser, logout }) => {
                     </NavLink>
                     <NavLink to="/movienew" id="link">
                         Add Movie
+                    </NavLink>
+                    <NavLink to="/home" id="link">
+                        Generate Movie
                     </NavLink>
                     <Dropdown isOpen={dropdownOpen} toggle={toggle} direction={direction}>
                         <DropdownToggle className="bg-transparent"><img src={User} alt="Account Icon" className="user"/></DropdownToggle>

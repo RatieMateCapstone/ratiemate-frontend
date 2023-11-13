@@ -11,7 +11,7 @@ const MovieIndex = ({ movies }) => {
         <body id="movieIndex">
             <div className="signpages-container">
                 <img src={Sign} alt="Movie Theater Sign" className="pagesigns"/>
-                <h2 className="signtext">Movies</h2>
+                <h2 className="signtext">All Movies</h2>
             </div>
             <main id="index-container">
                 {movies?.map((movie, index) => {
@@ -35,7 +35,7 @@ const MovieIndex = ({ movies }) => {
                                 </CardSubtitle>
                                 <div className="button-container">
                                     <Button id="show-button">
-                                        <NavLink to={`/movieshow/${movie.id}`} className="show-link">
+                                        <NavLink to={`/movieshow2/${movie.id}`} className="show-link">
                                             View Movie
                                         </NavLink>
                                     </Button>

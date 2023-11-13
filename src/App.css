@@ -655,7 +655,7 @@ h1{
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.movie-image {
+.movie-image{
   max-width: 300px;
   width: 100%;
   height: auto;
@@ -716,4 +716,19 @@ h1{
 }
 
 
-
+.show2-container{
+  border: solid;
+  text-align: center;
+  align-items: flex-start; 
+  justify-content: space-around; 
+  max-width: 1200px;
+  width: 100%;
+  margin-top: 20px;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.2));
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
