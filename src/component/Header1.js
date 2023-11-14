@@ -52,16 +52,38 @@ const Header1 = ({ direction, currentUser, logout }) => {
                                 <DropdownItem header>
                                     Account
                                 </DropdownItem>
+                                {!currentUser && (
+                                  <>
+                                    <DropdownItem className="link-container">
+                                      <NavLink to="/login">
+                                        SignIn
+                                      </NavLink>
+                                    </DropdownItem>
+                                    <DropdownItem className="link-container">
+                                      <NavLink to="/signup">
+                                        Sign Up
+                                      </NavLink>
+                                    </DropdownItem>
+                                  </>
+                                )}
                                 <DropdownItem>
-                                    <NavLink to="/moviesprotectedindex" className="dropdown-link">
-                                        My Movies
-                                    </NavLink>
+                                  {currentUser && (
+                                    <>
+                                      <NavLink to="/moviesprotectedindex" className="dropdown-link">
+                                          My Movies
+                                      </NavLink>
+                                    </>
+                                  )}
                                 </DropdownItem>
                                 <DropdownItem divider/>
                                 <DropdownItem>
+                                  {currentUser&& (
+                                    <>
                                     <NavLink className="dropdown-link" onClick={handleClick} to="/">
                                         Log Out
                                     </NavLink>
+                                    </>
+                                  )}
                                 </DropdownItem>
                             </DropdownMenu>
                     </Dropdown>
