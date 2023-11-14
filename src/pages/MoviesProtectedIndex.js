@@ -6,10 +6,28 @@ import { NavLink } from "react-router-dom";
 import Footer from "../component/Footer"
 import Sign from "../assets/cinemaSign.gif"
 
-const MoviesProtectedIndex = ({ currentUser, movies, createMovie }) => {
+const MoviesProtectedIndex = ({ currentUser, movies, createMovie, deleteMovie, handleMovieDeletion }) => {
     console.log("current user:", movies.user_id, currentUser.id);
+    if (!movies || !currentUser) {
+        console.error('Movies or currentUser is undefined.');
+        return <div>Loading...</div>;
+    }
+    if (!Array.isArray(movies)) {
+        console.error('Expected movies to be an array but got:', typeof movies);
+        return <div>Error: Movies data is invalid.</div>;
+    }
     const currentMovies = movies.filter(movie => movie.user_id === currentUser.id) 
-    
+    const handleDelete = async (movieId, event) => {
+        event.preventDefault();
+        if (window.confirm("Are you sure you want to delete this movie?")) {
+          try {
+            await deleteMovie(movieId);
+            handleMovieDeletion(movieId);
+          } catch (error) {
+            console.error('Error deleting the movie:', error);
+          }
+        }
+      };
 
     return(
         <body id="movieIndex">
@@ -49,17 +67,21 @@ const MoviesProtectedIndex = ({ currentUser, movies, createMovie }) => {
                                     Description: {movie.description}
                                 </CardSubtitle>
                                 <CardSubtitle className="mb-2 text-muted" tag="h6" id="rating">
-                                    <div>
-                                        <button>  
-                                            Edit Movie
-                                        </button>
-                                    </div>
+                                    <NavLink to={`/movieedit/${movie.id}`}>    
+                                        <div>
+                                            <button>  
+                                                Edit Movie
+                                            </button>
+                                        </div>
+                                    </NavLink>
                                 </CardSubtitle>
                                 <CardSubtitle className="mb-2 text-muted" tag="h6" id="rating">
                                     <div>
-                                        <button>  
-                                            Delete Movie
-                                        </button>
+                                        <NavLink to="" onClick={(e) => handleDelete(movie.id, e)}>
+                                            <button>  
+                                                Delete Movie
+                                            </button>
+                                        </NavLink>
                                     </div>
                                 </CardSubtitle>
                                
