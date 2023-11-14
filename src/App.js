@@ -125,6 +125,46 @@ const App = () => {
     .then(() => readMovies())
     .catch((errors) => console.log("New Movie create error:", errors))
   }
+  const updateMovie = async (updatedMovie, id) => {
+    try {
+      const response = await fetch(`http://localhost:3000/movies/${id}`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(updatedMovie),
+      });
+      if (!response.ok) throw new Error('Network response was not ok.');
+
+      const updatedMovies = movies.map(movie =>
+        movie.id === +id ? { ...movie, ...updatedMovie } : movie
+      );
+      setMovies(updatedMovies);
+      navigate('/moviesprotectedindex'); 
+    } catch (error) {
+      console.error('Failed to update movie:', error);
+    }
+  };
+ 
+  
+   const deleteMovie = (id) => {
+     fetch(`http://localhost:3000/movies/${id}`, {
+      headers: {
+       "Content-Type": "application/json"
+      },
+      method: "DELETE"
+     })
+      .then((response) => response.json())
+      .then(() => setMovies())
+      .catch((errors) => console.log("delete errors:", errors))
+    }
+  
+  
+    const handleMovieDeletion = (movieId) => {
+      setMovies(currentMovies => currentMovies.filter(movie => movie.id !== movieId));
+    };
+  
+  
 
   return (
     <>
@@ -133,14 +173,22 @@ const App = () => {
         <Route path="/home" element={<><Header4  currentUser={currentUser} logout={logout}/><Home /></>} />
         <Route path="/movieindex" element={<><Header2 currentUser={currentUser} logout={logout}/> <MovieIndex movies={movies} /></>} />
         { currentUser && 
-        <Route path="/moviesprotectedindex" element={<><Header2 currentUser={currentUser} logout={logout}/> <MoviesProtectedIndex currentUser={currentUser} movies={movies} /></>} />
+        <Route path="/moviesprotectedindex" element={<><Header2 currentUser={currentUser} logout={logout}/> <MoviesProtectedIndex currentUser={currentUser} deleteMovie={deleteMovie} handleMovieDeletion={handleMovieDeletion} movies={movies} /></>} />
         }
         { currentUser &&
-          <Route path="/movienew" element={<><Header3 currentUser={currentUser} logout={logout}/><MovieNew createMovie={createMovie} currentUser={currentUser}/></>} />
+          <Route path="/movienew" 
+          element={<><Header3 currentUser={currentUser} logout={logout}/><MovieNew 
+          createMovie={createMovie} currentUser={currentUser}/></>} />
         }
         <Route path="/movieshow/:id" element={<><Header1 currentUser={currentUser} logout={logout}/><MovieShow movies={movies} /></>} />
         <Route path="/movieshow2/:id" element={<><Header1 currentUser={currentUser} logout={logout}/><MovieShow2 currentUser={currentUser} movies={movies} /></>} />
-        <Route path="/movieedit" element={<MovieEdit />} />
+        {currentUser &&
+        <Route path="/movieedit/:id" 
+        element={<><Header1 isLoggedIn={currentUser} /><MovieEdit 
+        updateMovie={updateMovie} 
+        movies={movies} 
+        /></>} />
+        }
         <Route path="/aboutus" element={<><Header1 currentUser={currentUser} logout={logout}/><AboutUs /></>} />
         <Route path="/signup" element={<SignUp signup={signup} />} />
         <Route path="/login" element={<Login login={login}/>} />
@@ -149,6 +197,8 @@ const App = () => {
     </>
   );
 };
+        
+        
 
 export default App;
 

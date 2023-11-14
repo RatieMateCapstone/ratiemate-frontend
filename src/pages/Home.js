@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
 import Header1 from "../component/Header1";
 import Footer from "../component/Footer";
-import '../Home.css';
+
  
 
 const Home = () => {
@@ -42,13 +42,6 @@ const Home = () => {
     fetchMovies();
   };
 
-//   const homeStyle = {
-//     backgroundImage: `url(${backgroundImage})`,
-//     backgroundSize: 'cover',
-//     backgroundPosition: 'center',
-//     backgroundRepeat: 'no-repeat',
-//     height: '100vh',
-//   };
 
   return (
     <>
