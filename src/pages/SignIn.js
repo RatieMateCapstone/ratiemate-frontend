@@ -34,6 +34,7 @@ const Login = ({login}) => {
             <input type='submit' value="Login" />
           <div>
             Not registered yet, 
+            
           <NavLink to="/signup">
             Sign Up
           </NavLink> 
