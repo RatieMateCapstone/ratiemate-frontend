@@ -16,4 +16,26 @@ describe("<App />", () => {
 
     expect(greeting).toBeInTheDocument()
   })
+  it("renders a image of a ticket booth", () => {
+    render(
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    )
+    const ticketBooth = screen.getByRole('img', {
+      name: /ticket booth/i
+    })
+    expect(ticketBooth).toBeInTheDocument()
+  })
+  it("renders a sign up button", () => {
+    render(
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    )
+    const signupButton = screen.getByRole('button', {
+      name: /sign up/i
+    })
+    expect(signupButton).toBeTruthy()
+  })
 })

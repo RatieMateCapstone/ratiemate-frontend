@@ -173,7 +173,7 @@ const App = () => {
         <Route path="/home" element={<><Header4  currentUser={currentUser} logout={logout}/><Home /></>} />
         <Route path="/movieindex" element={<><Header2 currentUser={currentUser} logout={logout}/> <MovieIndex movies={movies} /></>} />
         { currentUser && 
-        <Route path="/moviesprotectedindex" element={<><Header2 currentUser={currentUser} logout={logout}/> <MoviesProtectedIndex currentUser={currentUser} deleteMovie={deleteMovie} handleMovieDeletion={handleMovieDeletion} movies={movies} /></>} />
+        <Route path="/moviesprotectedindex" element={<><Header1 currentUser={currentUser} logout={logout}/> <MoviesProtectedIndex currentUser={currentUser} deleteMovie={deleteMovie} handleMovieDeletion={handleMovieDeletion} movies={movies} /></>} />
         }
         { currentUser &&
           <Route path="/movienew" 
@@ -183,11 +183,7 @@ const App = () => {
         <Route path="/movieshow/:id" element={<><Header1 currentUser={currentUser} logout={logout}/><MovieShow movies={movies} /></>} />
         <Route path="/movieshow2/:id" element={<><Header1 currentUser={currentUser} logout={logout}/><MovieShow2 currentUser={currentUser} movies={movies} /></>} />
         {currentUser &&
-        <Route path="/movieedit/:id" 
-        element={<><Header1 isLoggedIn={currentUser} /><MovieEdit 
-        updateMovie={updateMovie} 
-        movies={movies} 
-        /></>} />
+          <Route path="/movieedit/:id" element={<><Header1 currentUser={currentUser} logout={logout} /><MovieEdit updateMovie={updateMovie} movies={movies} /></>} />
         }
         <Route path="/aboutus" element={<><Header1 currentUser={currentUser} logout={logout}/><AboutUs /></>} />
         <Route path="/signup" element={<SignUp signup={signup} />} />

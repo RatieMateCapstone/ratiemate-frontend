@@ -9,24 +9,30 @@ describe("<Header1 />", () => {
                 <Header1 />
             </BrowserRouter>
         )
-        const webTitle = screen.getByRole('link', {
-            name: /ratie mate/i
-          })
+        const webTitle = screen.getByText(/ratie mate/i)
         expect(webTitle).toBeInTheDocument()
     })
-    it("renders navigating links ", () => {
+    it("renders navigating link to view all ", () => {
         render(
             <BrowserRouter>
                 <Header1 />
             </BrowserRouter>
         )
-        const navLink1 = screen.getByRole('link', {
+        const moviesLink = screen.getByRole('link', {
             name: /all movies/i
-          })
-        const navLink2 = screen.getByRole('link', {
-            name: /add movie/i
-          })
-        expect(navLink1).toBeInTheDocument()
-        expect(navLink2).toBeInTheDocument()
+        })
+        expect(moviesLink).toBeInTheDocument()
+    })
+    it("renders a sign in button", () => {
+        render(
+            <BrowserRouter>
+                <Header1 />
+            </BrowserRouter>
+        )
+        const signinButton = screen.getByRole('link', {
+            name: /sign in/i,
+            hidden: true
+        })
+        expect(signinButton).toBeInTheDocument()
     })
 })

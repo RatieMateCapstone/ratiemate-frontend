@@ -6,6 +6,14 @@ body#signinsignup{
   height: 100vh;
 }
 
+html{
+  background-color: maroon;
+}
+
+body#home{
+  background-color: maroon;
+}
+
 body#signinorsignup{
   background-image: url("./assets/capstonebackground.png");
   background-size: cover;
@@ -15,7 +23,6 @@ body#signinorsignup{
 body#movieIndex{
   background-image: none;
   background-color: maroon;
-
 }
 
 body#movieShow{
@@ -36,10 +43,15 @@ body#movieNew{
   background-repeat: no-repeat;
 }
 
+body#edit{
+  background-image: url("./assets/capstonebackground.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
 /* Sign In/Sign Up Page */
 #choice-container{
   top: 100px;
-  border: solid;
 }
 
 .sign-container{
@@ -258,6 +270,7 @@ h1{
 
 /* Index Page Styling */
 .signpages-container{
+  position: relative;
   text-align: center;
 }
 
@@ -269,29 +282,47 @@ h1{
 
 .signtext{
   position: absolute;
-  top: 150px; 
+  top: 80px; 
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
 #index-container{
   display: flex;
-  justify-content: space-evenly;
   flex-wrap: wrap;
+  justify-content: space-around;
   margin-bottom: 60px;
   margin-top: 30px;
+  overflow: hidden;
+}
+
+#index-container2{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 1000px; 
+  margin: 0 auto;
+}
+
+.card-container2{
+  flex: 0 0 calc(48% - 10px);
+  margin: 10px;
+  padding-bottom: 70px;
 }
 
 .card-container{
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px; 
-  margin-bottom: 50px;
+  flex: 0 0 calc(25% - 20%);
+  margin: 10px;
+  margin-bottom: auto;
+  margin-top: auto;
+  :hover{
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="black"><text y="18" font-size="24">🍿</text></svg>'), auto;
+  }
 }
 
 #card{
-  margin-bottom: auto;
-  margin-top: auto;
+  width: 100%;
+  margin-bottom: 30px;
 }
 
 #card-title{
@@ -305,9 +336,10 @@ h1{
 
 #show-button{
   background-color: transparent;
+  cursor: pointer;
 }
 
-#show-button:hover{
+#show-button:hover, .editdelete-button:hover{
   transform: scale(1.05) translateX(5px);
 }
 
@@ -337,14 +369,13 @@ h1{
 #show-rating{
   margin-right: 50px;
   margin-left: 50px;
-  background-color: #FBD4C4;
   padding-top: 12px;
 }
 
 #icon{
   height: 40px;
-  width: 30px;
-  color: black;
+  width: 40px;
+  color: white;
   padding-right: 10px;
 }
 
@@ -361,7 +392,7 @@ h1{
 }
 .content {
   opacity: 0;
-  font-size: 20px;
+  font-size: 15px;
   position: absolute;
   top: 0; 
   width: 100%;
@@ -392,23 +423,22 @@ h1{
 
 .movie-genre{
   display: inline-block;
-  background-color: #FBD4C4;
+  color: white;
   padding: 3px;
 }
 
 .show-description{
   width: 500px;
   margin: auto;
-  margin-bottom: 100px;
-  background-color: #FBD4C4;
   padding: 10px;
+  color: white;
 }
 
 .watch{
   display: flex;
   text-decoration: none;
   color: black;
-  background-color: #FBD4C4;
+  color: white;
   padding-top: 8px;
   padding-left: 10px;
   padding-right: 10px;
@@ -490,7 +520,6 @@ h1{
 
 /* Movie New Page */
 #new-container{
-  border: solid;
   margin-bottom: 50px;
 }
 
@@ -505,18 +534,15 @@ h1{
   padding: 10px 50px;
   margin-top: 40px;
   margin-bottom: 50px;
-
 }
 
-/*  */
 /* Home Page CSS */
-
 .movie-container {
   display: flex;
   overflow-x: auto;
   gap: 20px;
   padding: 20px;
-  margin-bottom: 20px; /* Add some space below the container for when images expand */
+  margin-bottom: 20px; 
 }
 
 .movie {
@@ -525,24 +551,26 @@ h1{
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 4px;
   text-align: center;
-  transition: transform 0.3s ease; /* Smooth transition for the transform property */
-  position: relative; /* Needed for proper z-index functioning */
-  z-index: 1; /* Ensures that the image starts at a higher stacking context than the base level */
+  transition: transform 0.3s ease; 
+  position: relative; 
+  z-index: 1; 
+  :hover{
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="black"><text y="18" font-size="24">🍿</text></svg>'), auto;
+  }
 }
 
 .movie:hover {
-  transform: scale(1.5); /* Enlarges the movie to 150% of its original size on hover */
-  z-index: 2; /* Ensures the enlarged movie is above other content */
+  transform: scale(1.5);
+  z-index: 2;
 }
 
 .movie img {
   max-width: 100%;
   height: auto;
   border-radius: 4px;
-  transition: transform 0.3s ease; /* Ensure the image also has a smooth transition */
+  transition: transform 0.3s ease;
 }
 
-/* Optional: Adds a slightly darker overlay on hover to focus attention on the hovered movie */
 .movie:hover::after {
   content: '';
   position: absolute;
@@ -552,7 +580,7 @@ h1{
   left: 0;
   background: rgba(0, 0, 0, 0.1);
   border-radius: 4px;
-  z-index: -1; /* Ensures the overlay is behind the movie content */
+  z-index: -1;
 }
 
 /* Scrollbar styles */
@@ -570,8 +598,6 @@ h1{
 }
 
 /* Search bar  */
-
-/* Container for the search bar to align it nicely */
 .search-container {
   display: flex;
   justify-content: center;
@@ -584,10 +610,10 @@ h1{
   font-size: 16px;
   border: none;
   outline: none;
-  border-radius: 20px 0 0 20px; /* Rounded corners on the left side */
-  width: 300px; /* You can adjust the width as needed */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
-  transition: all 0.3s ease; /* Smooth transition for interactions */
+  border-radius: 20px 0 0 20px;
+  width: 300px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease; 
 }
 
 /* Style the search button */
@@ -596,33 +622,28 @@ h1{
   font-size: 16px;
   border: none;
   outline: none;
-  background-color: #007BFF; /* Bootstrap primary blue, you can choose your own color */
+  background-color: #007BFF;
   color: white;
-  text-transform: uppercase; /* Optional: makes the text uppercase */
-  border-radius: 0 20px 20px 0; /* Rounded corners on the right side */
-  cursor: pointer; /* Changes the cursor to indicate it's clickable */
-  transition: background-color 0.3s ease; /* Smooth background color transition */
+  text-transform: uppercase;
+  border-radius: 0 20px 20px 0; 
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-/* Change background color on hover for the button */
+
 .search-button:hover {
-  background-color: #0056b3; /* A darker shade of blue */
+  background-color: #0056b3;
 }
 
-/* Slightly increase the size of the input field when it's focused */
 .search-input:focus {
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3); /* Stronger shadow for depth */
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
 }
 
-/* Optional: hide the search button on mobile to save space */
 @media (max-width: 768px) {
   .search-button {
     display: none;
   }
 }
-
-
-/* New show page */
 
 /* MovieShow.css */
 #movieShow {
@@ -638,11 +659,41 @@ h1{
   min-height: 100vh;
 }
 
+/* css for home page */
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px; 
+  padding: 20px;
+  justify-items: center; 
+  margin-bottom: 55px;
+}
+.movie {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  width: 100%;
+  max-width: 200px; 
+}
+.movie img {
+  width: 100%; 
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  margin-bottom: 10px;
+}
+.movie h3 {
+  text-align: center;
+  font-size: 1rem;
+  margin: 0 10px; 
+}
+/* CSS for home page */
+
 .show-container {
   display: flex;
-  flex-direction: row; /* Set main axis to horizontal */
-  align-items: flex-start; /* Align items to start of cross axis */
-  justify-content: space-around; /* Evenly distribute space around items */
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-around;
   max-width: 1200px;
   width: 100%;
   margin-top: 20px;
@@ -666,7 +717,7 @@ h1{
 
 .movie-details {
   display: flex;
-  flex-direction: column; /* Stack children vertically */
+  flex-direction: column;
   justify-content: space-between;
   max-width: 600px;
   width: 100%;
@@ -715,9 +766,7 @@ h1{
   background-color: #c4121c;
 }
 
-
 .show2-container{
-  border: solid;
   text-align: center;
   align-items: flex-start; 
   justify-content: space-around; 
@@ -733,93 +782,25 @@ h1{
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-#movieShow {
+/* Home Page Styling */
+.home-title{
+  color: white;
+}
+
+/* Edit Page Styling */
+#formEdit{
+  background: #fbd4c4;
+  border: 1px solid #dedede;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 20px;
-  background-image: url('./assets/capstonebackground.png');  
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  color: #000000;
-  min-height: 100vh;
-}
-
-.show-container {
-  display: flex;
-  flex-direction: row; /* Set main axis to horizontal */
-  align-items: flex-start; /* Align items to start of cross axis */
-  justify-content: space-around; /* Evenly distribute space around items */
-  max-width: 1200px;
-  width: 100%;
+  justify-content: space-around;
+  margin: 0 auto;
+  max-width: 500px;
+  padding: 10px 50px;
   margin-top: 20px;
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.2));
-  backdrop-filter: blur(10px);
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-  overflow: hidden;
-  padding: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  margin-bottom: 50px;
 }
 
-.movie-image {
-  max-width: 300px;
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+#ratingedit{
+  text-align: left;
 }
-
-.movie-details {
-  display: flex;
-  flex-direction: column; /* Stack children vertically */
-  justify-content: space-between;
-  max-width: 600px;
-  width: 100%;
-  margin-left: 20px;
-}
-
-.movie-title {
-  font-size: 2.5rem;
-  margin-bottom: 10px;
-}
-
-.trailer-container {
-  width: 100%;
-  margin-top: 20px;
-}
-
-.trailer-container iframe {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 16 / 9;
-}
-
-.movie-rating {
-  display: flex;
-  align-items: center;
-  margin: 10px 0;
-}
-
-.movie-genre,
-.movie-description {
-  margin: 5px 0;
-}
-
-.movie-trailer-link {
-  display: inline-block;
-  margin-top: 15px;
-  background-color: #e62429;
-  color: #fff;
-  padding: 10px 20px;
-  border-radius: 5px;
-  text-decoration: none;
-  transition: background-color 0.3s;
-}
-
-.movie-trailer-link:hover {
-  background-color: #c4121c;
-}
-
