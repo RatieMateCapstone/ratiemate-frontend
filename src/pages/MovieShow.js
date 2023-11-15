@@ -30,7 +30,8 @@ const MovieShow = () => {
           setTrailerUrl(`https://www.youtube.com/embed/${trailer.key}`);
         }
       } catch (error) {
-        console.error("There has been a problem with your fetch operation:", error);
+        // console.error("There has been a problem with your fetch operation:", error);
+        setMovie(null)
       } finally {
         setLoading(false);
       }
