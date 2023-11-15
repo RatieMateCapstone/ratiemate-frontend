@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, CardBody, CardTitle, CardSubtitle, Button } from "reactstrap"
+import { Card, CardBody, CardTitle, CardSubtitle } from "reactstrap"
 import { Rating} from "@mui/material";
 import "../App.css"
 import { NavLink } from "react-router-dom";
@@ -69,7 +69,7 @@ const MoviesProtectedIndex = ({ currentUser, movies, createMovie, deleteMovie, h
                                 <CardSubtitle className="mb-2 text-muted" tag="h6" id="rating">
                                     <NavLink to={`/movieedit/${movie.id}`}>    
                                         <div>
-                                            <button>  
+                                            <button className="editdelete-button">  
                                                 Edit Movie
                                             </button>
                                         </div>
@@ -78,7 +78,7 @@ const MoviesProtectedIndex = ({ currentUser, movies, createMovie, deleteMovie, h
                                 <CardSubtitle className="mb-2 text-muted" tag="h6" id="rating">
                                     <div>
                                         <NavLink to="" onClick={(e) => handleDelete(movie.id, e)}>
-                                            <button>  
+                                            <button className="editdelete-button">
                                                 Delete Movie
                                             </button>
                                         </NavLink>

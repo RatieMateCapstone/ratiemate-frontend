@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
-import Header1 from "../component/Header1";
 import Footer from "../component/Footer";
 import { Rating } from "@mui/material";
 

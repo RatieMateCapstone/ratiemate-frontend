@@ -1,11 +1,10 @@
 import React, { useRef } from "react";
-import { useNavigate, NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import Footer from "../component/Footer"
 
 
 const Login = ({login}) => {
   const formRef = useRef()
-  const navigate = useNavigate()
   
   const handleSubmit = (e) => {
     e.preventDefault()

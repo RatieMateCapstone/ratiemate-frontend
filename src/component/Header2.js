@@ -28,38 +28,60 @@ const Header2 = ({ direction, currentUser, logout }) => {
                 </NavbarBrand>
                 </div>
                 <div className="links-header1">
-                    <NavLink to="/movienew" id="link">
-                        Add Movie
-                    </NavLink>
+                    {currentUser&& (
+                        <NavLink to="/movienew" id="link">
+                            Add Movie
+                        </NavLink>
+                    )}
                     <NavLink to="/home" id="link">
                         Generate Movie
                     </NavLink>
                     <Dropdown isOpen={dropdownOpen} toggle={toggle} direction={direction}>
                         <DropdownToggle className="bg-transparent"><img src={User} alt="Account Icon" className="user"/></DropdownToggle>
                             <DropdownMenu>
-                            {currentUser ? (
-                                <DropdownItem header>
-                                    Greetings, {currentUser.username}!
-                                </DropdownItem>
-                            ) : (
-                                <DropdownItem header>
-                                    Greetings, Guest!
-                                </DropdownItem>
-                            )    
-                            }
-                                <DropdownItem header>
-                                    Account
-                                </DropdownItem>
+                                {currentUser ? (
+                                    <DropdownItem header>
+                                        Greetings, {currentUser.username}!
+                                    </DropdownItem>
+                                ) : (
+                                    <DropdownItem header>
+                                        Greetings, Guest!
+                                    </DropdownItem>
+                                )    
+                                }
                                 <DropdownItem>
+                                {currentUser && (
+                                    <>
                                     <NavLink to="/moviesprotectedindex" className="dropdown-link">
                                         My Movies
                                     </NavLink>
+                                    </>
+                                )}
                                 </DropdownItem>
+                                {!currentUser && (
+                                    <>
                                 <DropdownItem divider/>
+                                    <DropdownItem className="link-container">
+                                        <NavLink to="/login" className="dropdown-link">
+                                        Sign In
+                                        </NavLink>
+                                    </DropdownItem>
+                                    <DropdownItem className="link-container">
+                                        <NavLink to="/signup" className="dropdown-link">
+                                        Sign Up
+                                        </NavLink>
+                                    </DropdownItem>
+                                    </>
+                                )}
                                 <DropdownItem>
-                                    <NavLink className="dropdown-link"  onClick={handleClick} to="/">
+                                {currentUser&& (
+                                    <>
+                                    <DropdownItem divider/>
+                                    <NavLink className="dropdown-link" onClick={handleClick} to="/">
                                         Log Out
                                     </NavLink>
+                                    </>
+                                )}
                                 </DropdownItem>
                             </DropdownMenu>
                     </Dropdown>

@@ -3,26 +3,25 @@ import { BrowserRouter } from 'react-router-dom'
 import Header3 from "../component/Header3"
 
 describe("<Header3 />", () => {
-    it("renders a web title", () => {
+    it("renders a greeting to user", () => {
         render(
             <BrowserRouter>
                 <Header3 />
             </BrowserRouter>
         )
-        const webTitle = screen.getByRole('link', {
-            name: /ratie mate/i
-          })
-        expect(webTitle).toBeInTheDocument()
+        const greetingsUser = screen.getByRole('heading', {
+            name: /greetings, guest!/i,
+            hidden: true
+        })
+        expect(greetingsUser).toBeInTheDocument()
     })
-    it("renders navigating links ", () => {
+    it("renders website title", () => {
         render(
             <BrowserRouter>
                 <Header3 />
             </BrowserRouter>
         )
-        const navLink = screen.getByRole('link', {
-            name: /all movies/i
-          })
-        expect(navLink).toBeInTheDocument()
+        const webTitle = screen.getByText(/ratie mate/i)
+        expect(webTitle).toBeInTheDocument()
     })
 })

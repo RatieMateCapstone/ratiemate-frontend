@@ -37,29 +37,49 @@ const Header3 = ({ direction, currentUser, logout }) => {
                     <Dropdown isOpen={dropdownOpen} toggle={toggle} direction={direction}>
                         <DropdownToggle className="bg-transparent"><img src={User} alt="Account Icon" className="user"/></DropdownToggle>
                             <DropdownMenu>
-                            {currentUser ? (
-                                <DropdownItem header>
-                                    Greetings, {currentUser.username}!
-                                </DropdownItem>
-                            ) : (
-                                <DropdownItem header>
-                                    Greetings, Guest!
-                                </DropdownItem>
-                            )    
-                            }
-                                <DropdownItem header>
-                                    Account
-                                </DropdownItem>
+                                {currentUser ? (
+                                    <DropdownItem header>
+                                        Greetings, {currentUser.username}!
+                                    </DropdownItem>
+                                ) : (
+                                    <DropdownItem header>
+                                        Greetings, Guest!
+                                    </DropdownItem>
+                                )    
+                                }
                                 <DropdownItem>
+                                {currentUser && (
+                                    <>
                                     <NavLink to="/moviesprotectedindex" className="dropdown-link">
                                         My Movies
                                     </NavLink>
+                                    </>
+                                )}
                                 </DropdownItem>
+                                {!currentUser && (
+                                    <>
                                 <DropdownItem divider/>
+                                    <DropdownItem className="link-container">
+                                        <NavLink to="/login" className="dropdown-link">
+                                        Sign In
+                                        </NavLink>
+                                    </DropdownItem>
+                                    <DropdownItem className="link-container">
+                                        <NavLink to="/signup" className="dropdown-link">
+                                        Sign Up
+                                        </NavLink>
+                                    </DropdownItem>
+                                    </>
+                                )}
                                 <DropdownItem>
+                                {currentUser&& (
+                                    <>
+                                    <DropdownItem divider/>
                                     <NavLink className="dropdown-link" onClick={handleClick} to="/">
                                         Log Out
                                     </NavLink>
+                                    </>
+                                )}
                                 </DropdownItem>
                             </DropdownMenu>
                     </Dropdown>

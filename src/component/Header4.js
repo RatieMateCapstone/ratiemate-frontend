@@ -30,35 +30,57 @@ const Header4 = ({ direction, currentUser, logout }) => {
                     <NavLink to="/movieindex" id="link">
                         All Movies
                     </NavLink>
-                    <NavLink to="/movienew" id="link">
-                        Add Movie
-                    </NavLink>
+                    {currentUser && (
+                        <NavLink to="/movienew" id="link">
+                            Add Movie
+                        </NavLink>
+                    )}
                     <Dropdown isOpen={dropdownOpen} toggle={toggle} direction={direction}>
                         <DropdownToggle className="bg-transparent"><img src={User} alt="Account Icon" className="user"/></DropdownToggle>
                             <DropdownMenu>
-                            {currentUser ? (
-                                <DropdownItem header>
-                                    Greetings, {currentUser.username}!
-                                </DropdownItem>
-                            ) : (
-                                <DropdownItem header>
-                                    Greetings, Guest!
-                                </DropdownItem>
-                            )    
-                            }
-                                <DropdownItem header>
-                                    Account
-                                </DropdownItem>
+                                {currentUser ? (
+                                    <DropdownItem header>
+                                        Greetings, {currentUser.username}!
+                                    </DropdownItem>
+                                ) : (
+                                    <DropdownItem header>
+                                        Greetings, Guest!
+                                    </DropdownItem>
+                                )    
+                                }
                                 <DropdownItem>
-                                    <NavLink to="/usermovies" className="dropdown-link">
-                                        My Movies
-                                    </NavLink>
+                                    {currentUser && (
+                                        <>
+                                        <NavLink to="/moviesprotectedindex" className="dropdown-link">
+                                            My Movies
+                                        </NavLink>
+                                        </>
+                                    )}
                                 </DropdownItem>
-                                <DropdownItem divider/>
+                                {!currentUser && (
+                                    <>
+                                        <DropdownItem divider/>
+                                            <DropdownItem className="link-container">
+                                                <NavLink to="/login" className="dropdown-link">
+                                                Sign In
+                                                </NavLink>
+                                            </DropdownItem>
+                                        <DropdownItem className="link-container">
+                                            <NavLink to="/signup" className="dropdown-link">
+                                                Sign Up
+                                            </NavLink>
+                                        </DropdownItem>
+                                    </>
+                                )}
                                 <DropdownItem>
-                                    <NavLink className="dropdown-link" onClick={handleClick} to="/">
-                                        Log Out
-                                    </NavLink>
+                                    {currentUser&& (
+                                        <>
+                                            <DropdownItem divider/>
+                                            <NavLink className="dropdown-link" onClick={handleClick} to="/">
+                                                Log Out
+                                            </NavLink>
+                                        </>
+                                    )}
                                 </DropdownItem>
                             </DropdownMenu>
                     </Dropdown>
