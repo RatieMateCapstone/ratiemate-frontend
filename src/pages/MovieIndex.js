@@ -34,11 +34,11 @@ const MovieIndex = ({ movies }) => {
                                     </div>
                                 </CardSubtitle>
                                 <div className="button-container">
-                                    <Button id="show-button">
-                                        <NavLink to={`/movieshow2/${movie.id}`} className="show-link">
-                                            View Movie
-                                        </NavLink>
-                                    </Button>
+                                    <NavLink to={`/movieshow2/${movie.id}`} className="show-link">
+                                        <Button className="view-button">
+                                        View Movie
+                                        </Button>
+                                    </NavLink>
                                 </div>
                             </CardBody>
                         </Card>

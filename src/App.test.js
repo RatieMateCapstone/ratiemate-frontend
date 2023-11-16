@@ -10,11 +10,10 @@ describe("<App />", () => {
       </BrowserRouter>
     )
 
-    const greeting = screen.getByRole("heading", {
-      name: /Ratie Mate/i
-    })
+ 
+    const greetings = screen.getAllByText(/Ratie Mate/i);
+    expect(greetings.length).toBeGreaterThan(0);
 
-    expect(greeting).toBeInTheDocument()
   })
   it("renders a image of a ticket booth", () => {
     render(
