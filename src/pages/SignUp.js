@@ -1,8 +1,8 @@
 import React, { useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import { Form, FormGroup, Label, Input} from 'reactstrap';
+import { Form, FormGroup, Label, Input } from 'reactstrap';
 import Footer from "../component/Footer";
-import { NavLink } from "react-router-dom"
+import { NavLink } from "react-router-dom";
 
 const SignUp = ({ signup }) => {
   const formRef = useRef(null);
@@ -50,9 +50,8 @@ const SignUp = ({ signup }) => {
               name="email"
               id="email"
               placeholder="email"
-              />
+            />
           </FormGroup>
-          {' '}
           <FormGroup>
             <Label for="username">Username:</Label>
             <Input
@@ -60,9 +59,8 @@ const SignUp = ({ signup }) => {
               name="username"
               id="username"
               placeholder="username"
-              />
+            />
           </FormGroup>
-          {' '}
           <FormGroup>
             <Label for="password">Password:</Label>
             <Input
@@ -70,9 +68,8 @@ const SignUp = ({ signup }) => {
               name="password"
               id="password"
               placeholder="password"
-              />
+            />
           </FormGroup>
-          {' '}
           <FormGroup>
             <Label for="confirmpassword">Password Confirmation:</Label>
             <Input
@@ -80,10 +77,9 @@ const SignUp = ({ signup }) => {
               name="confirmpassword"
               id="confirmpassword"
               placeholder="confirm password"
-              />
+            />
           </FormGroup>
-          {' '}
-              <input type='submit' value="Sign Up" />
+          <input type='submit' value="Sign Up" />
           <div>
             Already registered?, 
             <NavLink to="/signin">
@@ -91,7 +87,7 @@ const SignUp = ({ signup }) => {
             </NavLink> 
           </div>
         </Form>
-        </div>
+      </div>
       <Footer />
     </body>
   );
