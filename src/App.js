@@ -29,14 +29,14 @@ const App = () => {
   console.log("movies", setMovies)
 
   const readMovies = () => {
-    fetch(`http://localhost:3000/movies`)
+    fetch(`https://backend-ratiemate.onrender.com/movies`)
       .then(response => response.json())
       .then(payload => setMovies(payload))
       .catch(error => console.log(error))
   }
 
   const signup = (userInfo) => {
-    fetch(`http://localhost:3000/signup`, {
+    fetch(`https://backend-ratiemate.onrender.com/signup`, {
       body: JSON.stringify(userInfo),
       headers: {
         'Content-Type': 'application/json',
@@ -68,7 +68,7 @@ const App = () => {
   }, [])
 
   const login = (userInfo) => {
-    fetch(`http://localhost:3000/login`, {
+    fetch(`https://backend-ratiemate.onrender.com/login`, {
       body: JSON.stringify(userInfo),
       headers: {
         "Content-Type": "application/json",
@@ -97,7 +97,7 @@ const App = () => {
   }
 
   const logout = () => {
-    fetch(`http://localhost:3000/logout`, {
+    fetch(`https://backend-ratiemate.onrender.com/logout`, {
       headers: {
         "Content-Type": "application/json",
         "Authorization": localStorage.getItem("token")
@@ -114,7 +114,7 @@ const App = () => {
 
   const createMovie = (newMovie) => {
     console.log(newMovie)
-    fetch(`http://localhost:3000/movies`,{
+    fetch(`https://backend-ratiemate.onrender.com/movies`,{
       body: JSON.stringify(newMovie),
       headers: {
         "Content-Type": "application/json"
@@ -127,7 +127,7 @@ const App = () => {
   }
   const updateMovie = async (updatedMovie, id) => {
     try {
-      const response = await fetch(`http://localhost:3000/movies/${id}`, {
+      const response = await fetch(`https://backend-ratiemate.onrender.com/movies/${id}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
@@ -148,7 +148,7 @@ const App = () => {
  
   
    const deleteMovie = (id) => {
-     fetch(`http://localhost:3000/movies/${id}`, {
+     fetch(`https://backend-ratiemate.onrender.com/movies/${id}`, {
       headers: {
        "Content-Type": "application/json"
       },
