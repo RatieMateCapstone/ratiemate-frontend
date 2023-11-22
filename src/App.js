@@ -28,12 +28,24 @@ const App = () => {
   console.log("movies", movies)
   console.log("movies", setMovies)
 
+  // const readMovies = () => {
+  //   fetch(`https://backend-ratiemate.onrender.com/movies`)
+  //     .then(response => response.json())
+  //     .then(payload => setMovies(payload))
+  //     .catch(error => console.log(error))
+  // }
+
   const readMovies = () => {
     fetch(`https://backend-ratiemate.onrender.com/movies`)
       .then(response => response.json())
-      .then(payload => setMovies(payload))
+      .then(payload => {
+        // Remove duplicates based on a unique property, like 'id'
+        const uniqueMovies = Array.from(new Map(payload.map(movie => [movie['id'], movie])).values());
+        setMovies(uniqueMovies);
+      })
       .catch(error => console.log(error))
   }
+  
 
   const signup = (userInfo) => {
     fetch(`https://backend-ratiemate.onrender.com/signup`, {
@@ -147,17 +159,30 @@ const App = () => {
   };
  
   
-   const deleteMovie = (id) => {
-     fetch(`https://backend-ratiemate.onrender.com/movies/${id}`, {
+  //  const deleteMovie = (id) => {
+  //    fetch(`https://backend-ratiemate.onrender.com/movies/${id}`, {
+  //     headers: {
+  //      "Content-Type": "application/json"
+  //     },
+  //     method: "DELETE"
+  //    })
+  //     .then((response) => response.json())
+  //     .then(() => setMovies())
+  //     .catch((errors) => console.log("delete errors:", errors))
+  //   }
+
+  const deleteMovie = (id) => {
+    fetch(`https://backend-ratiemate.onrender.com/movies/${id}`, {
       headers: {
-       "Content-Type": "application/json"
+        "Content-Type": "application/json"
       },
       method: "DELETE"
-     })
-      .then((response) => response.json())
-      .then(() => setMovies())
-      .catch((errors) => console.log("delete errors:", errors))
-    }
+    })
+    .then((response) => response.json())
+    .then(() => handleMovieDeletion(id))
+    .catch((errors) => console.log("delete errors:", errors))
+  }
+  
   
   
     const handleMovieDeletion = (movieId) => {
