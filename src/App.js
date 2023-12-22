@@ -28,27 +28,29 @@ const App = () => {
   console.log("movies", movies)
   console.log("movies", setMovies)
 
-  // const readMovies = () => {
-  //   fetch(`https://backend-ratiemate.onrender.com/movies`)
-  //     .then(response => response.json())
-  //     .then(payload => setMovies(payload))
-  //     .catch(error => console.log(error))
-  // }
-
+  //read functionality similar to apartment app.
   const readMovies = () => {
-    fetch(`https://backend-ratiemate.onrender.com/movies`)
+    fetch(`http://localhost:3000/movies`)
       .then(response => response.json())
-      .then(payload => {
-        // Remove duplicates based on a unique property, like 'id'
-        const uniqueMovies = Array.from(new Map(payload.map(movie => [movie['id'], movie])).values());
-        setMovies(uniqueMovies);
-      })
+      .then(payload => setMovies(payload))
       .catch(error => console.log(error))
   }
+
+  //Attempt to stop duplicating
+  // const readMovies = () => {
+  //   fetch(`http://localhost:3000`)
+  //     .then(response => response.json())
+  //     .then(payload => {
+  //       // Remove duplicates based on a unique property, like 'id'
+  //       const uniqueMovies = Array.from(new Map(payload.map(movie => [movie['id'], movie])).values());
+  //       setMovies(uniqueMovies);
+  //     })
+  //     .catch(error => console.log(error))
+  // }
   
 
   const signup = (userInfo) => {
-    fetch(`https://backend-ratiemate.onrender.com/signup`, {
+    fetch(`http://localhost:3000/signup`, {
       body: JSON.stringify(userInfo),
       headers: {
         'Content-Type': 'application/json',
@@ -80,7 +82,7 @@ const App = () => {
   }, [])
 
   const login = (userInfo) => {
-    fetch(`https://backend-ratiemate.onrender.com/login`, {
+    fetch(`http://localhost:3000/login`, {
       body: JSON.stringify(userInfo),
       headers: {
         "Content-Type": "application/json",
@@ -109,7 +111,7 @@ const App = () => {
   }
 
   const logout = () => {
-    fetch(`https://backend-ratiemate.onrender.com/logout`, {
+    fetch(`http://localhost:3000/logout`, {
       headers: {
         "Content-Type": "application/json",
         "Authorization": localStorage.getItem("token")
@@ -126,7 +128,7 @@ const App = () => {
 
   const createMovie = (newMovie) => {
     console.log(newMovie)
-    fetch(`https://backend-ratiemate.onrender.com/movies`,{
+    fetch(`http://localhost:3000/movies`,{
       body: JSON.stringify(newMovie),
       headers: {
         "Content-Type": "application/json"
@@ -139,7 +141,7 @@ const App = () => {
   }
   const updateMovie = async (updatedMovie, id) => {
     try {
-      const response = await fetch(`https://backend-ratiemate.onrender.com/movies/${id}`, {
+      const response = await fetch(`http://localhost:3000/movies/${id}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
@@ -172,7 +174,7 @@ const App = () => {
   //   }
 
   const deleteMovie = (id) => {
-    fetch(`https://backend-ratiemate.onrender.com/movies/${id}`, {
+    fetch(`http://localhost:3000/movies/${id}`, {
       headers: {
         "Content-Type": "application/json"
       },
@@ -197,6 +199,7 @@ const App = () => {
         <Route path="/" element={<><SignInSignUp signup={signup} /></>} />
         <Route path="/home" element={<><Header4  currentUser={currentUser} logout={logout}/><Home /></>} />
         <Route path="/movieindex" element={<><Header2 currentUser={currentUser} logout={logout}/> <MovieIndex movies={movies} /></>} />
+        {/* <Route path="/movieindex" element={ <MovieIndex movies={movies} currentUser={currentUser} logout={logout} />} /> */}
         { currentUser && 
         <Route path="/moviesprotectedindex" element={<><Header1 currentUser={currentUser} logout={logout}/> <MoviesProtectedIndex currentUser={currentUser} deleteMovie={deleteMovie} handleMovieDeletion={handleMovieDeletion} movies={movies} /></>} />
         }
