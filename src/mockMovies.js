@@ -3,7 +3,7 @@ const mockMovies = [
         id: 1,
         title: 'Born Again',
         genre: 'action',
-        image: 'https://m.media-amazon.com/images/M/MV5BM2E4YTM1OWQtNjlmOC00MTM3LWEwZTItODY0ODIzMjQ1NTY3XkEyXkFqcGdeQXVyNTk3NTM0MzY@._V1_FMjpg_UX1000_.jpg',
+        image: 'https://assets.mycast.io/posters/mcu-daredevil-born-again-series-fan-casting-poster-261961-large.jpg?1669297922',
         trailer: 'https://www.youtube.com/watch?v=V-yt7-DJZyY&ab_channel=Soundridemusic-NoCopyrightMusic',
         rating: 4,
         description: 'Ex Marine who turned his life to the lord has now been called back into action',
