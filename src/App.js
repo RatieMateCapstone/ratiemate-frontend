@@ -27,7 +27,7 @@ const App = () => {
   console.log("user", currentUser)
   console.log("movies", movies)
   console.log("movies", setMovies)
-
+3
   //read functionality similar to apartment app.
   const readMovies = () => {
     fetch(`http://localhost:3000/movies`)
