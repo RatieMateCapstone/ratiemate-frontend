@@ -18,6 +18,9 @@ import Header4 from "./component/Header4.js"
 import MoviesProtectedIndex from "./pages/MoviesProtectedIndex.js";
 
 
+
+const BASE_API_URL = process.env.REACT_APP_BASE_API_URL
+
 const App = () => {
   const [currentUser, setCurrentUser] = useState(null);
   const [movies, setMovies] = useState([])
@@ -27,10 +30,10 @@ const App = () => {
   console.log("user", currentUser)
   console.log("movies", movies)
   console.log("movies", setMovies)
-3
+
   //read functionality similar to apartment app.
   const readMovies = () => {
-    fetch(`http://localhost:3000/movies`)
+    fetch(`${BASE_API_URL}/movies`)
       .then(response => response.json())
       .then(payload => setMovies(payload))
       .catch(error => console.log(error))
@@ -50,7 +53,7 @@ const App = () => {
   
 
   const signup = (userInfo) => {
-    fetch(`http://localhost:3000/signup`, {
+    fetch(`${BASE_API_URL}/signup`, {
       body: JSON.stringify(userInfo),
       headers: {
         'Content-Type': 'application/json',
@@ -82,7 +85,7 @@ const App = () => {
   }, [])
 
   const login = (userInfo) => {
-    fetch(`http://localhost:3000/login`, {
+    fetch(`${BASE_API_URL}/login`, {
       body: JSON.stringify(userInfo),
       headers: {
         "Content-Type": "application/json",
@@ -111,7 +114,7 @@ const App = () => {
   }
 
   const logout = () => {
-    fetch(`http://localhost:3000/logout`, {
+    fetch(`${BASE_API_URL}/logout`, {
       headers: {
         "Content-Type": "application/json",
         "Authorization": localStorage.getItem("token")
@@ -128,7 +131,7 @@ const App = () => {
 
   const createMovie = (newMovie) => {
     console.log(newMovie)
-    fetch(`http://localhost:3000/movies`,{
+    fetch(`${BASE_API_URL}/movies`,{
       body: JSON.stringify(newMovie),
       headers: {
         "Content-Type": "application/json"
@@ -141,7 +144,7 @@ const App = () => {
   }
   const updateMovie = async (updatedMovie, id) => {
     try {
-      const response = await fetch(`http://localhost:3000/movies/${id}`, {
+      const response = await fetch(`${BASE_API_URL}/movies/${id}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
@@ -174,7 +177,7 @@ const App = () => {
   //   }
 
   const deleteMovie = (id) => {
-    fetch(`http://localhost:3000/movies/${id}`, {
+    fetch(`${BASE_API_URL}/movies/${id}`, {
       headers: {
         "Content-Type": "application/json"
       },
