@@ -20,6 +20,7 @@ import MoviesProtectedIndex from "./pages/MoviesProtectedIndex.js";
 
 
 const BASE_API_URL = process.env.REACT_APP_BASE_API_URL
+console.log(BASE_API_URL)
 
 const App = () => {
   const [currentUser, setCurrentUser] = useState(null);
